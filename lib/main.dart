@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:skyer/utils/colors.dart';
 import 'package:skyer/view/home/home_screen.dart';
 
@@ -14,13 +15,33 @@ class SkyerApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         useMaterial3: true,
+        textTheme: TextTheme(
+          titleSmall: GoogleFonts.poppins(
+            color: greyColor,
+            fontSize: 12,
+            letterSpacing: 0.5,
+          ),
+          titleMedium: GoogleFonts.poppins(
+            color: blackColor,
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+            letterSpacing: 0.5,
+            // height: 0.8,
+          ),
+          titleLarge: GoogleFonts.poppins(
+            color: blackColor,
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
+            letterSpacing: 0.5,
+          ),
+        ),
         appBarTheme: AppBarTheme(
           backgroundColor: whiteColor,
-          titleTextStyle: TextStyle(
+          titleTextStyle: GoogleFonts.poppins(
             color: blackColor,
-            fontSize: 25,
-            fontWeight: FontWeight.bold,
-            letterSpacing: 1,
+            fontSize: 22,
+            fontWeight: FontWeight.w600,
+            letterSpacing: 0.5,
           ),
         ),
       ),
