@@ -35,6 +35,10 @@ class Globals {
   static String userLocation = "Los Angeles, CA";
   static String userBio = "When the whole world is silent, even one voice becomes powerful – Malala Yousafzai";
 
+  static String userPost = '190';
+  static String userFollower = '1.5M';
+  static String userFollowing = '71';
+
   static List postImageUrlList = [
     postImageUrl1,
     postImageUrl2,
