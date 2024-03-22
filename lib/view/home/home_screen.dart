@@ -22,7 +22,7 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: whiteColor,
-      appBar: homeAppBar(),
+      appBar: homeAppBar(context),
       body: SingleChildScrollView(
         child: Column(
           children: [

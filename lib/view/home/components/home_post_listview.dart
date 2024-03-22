@@ -116,7 +116,7 @@ class HomePostsListView extends StatelessWidget {
                     width: width,
                     icon: Icon(
                       CupertinoIcons.share,
-                      color: greyColor,
+                      color: blackColor,
                     ),
                     count: '15',
                     color: primaryColor,

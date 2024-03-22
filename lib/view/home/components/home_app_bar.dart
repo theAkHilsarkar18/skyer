@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../utils/colors.dart';
 import '../../../utils/globals.dart';
 
-AppBar homeAppBar() {
+AppBar homeAppBar(BuildContext context) {
   return AppBar(
     surfaceTintColor: whiteColor,
     leading: IconButton(
@@ -14,14 +14,19 @@ AppBar homeAppBar() {
     actions: [
       Padding(
         padding: EdgeInsets.symmetric(horizontal: Globals.defaultPadding * 2),
-        child: Container(
-          decoration: BoxDecoration(
-            border: Border.all(color: blackColor, width: 1),
-            shape: BoxShape.circle,
-          ),
-          child: CircleAvatar(
-            radius: 22,
-            backgroundImage: NetworkImage(Globals.profileImageUrl),
+        child: GestureDetector(
+          onTap: () {
+            Navigator.of(context).pushNamed('/profile');
+          },
+          child: Container(
+            decoration: BoxDecoration(
+              border: Border.all(color: blackColor, width: 1),
+              shape: BoxShape.circle,
+            ),
+            child: CircleAvatar(
+              radius: 22,
+              backgroundImage: NetworkImage(Globals.profileImageUrl),
+            ),
           ),
         ),
       ),

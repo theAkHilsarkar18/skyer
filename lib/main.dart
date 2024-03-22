@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:skyer/utils/colors.dart';
 import 'package:skyer/view/home/home_screen.dart';
+import 'package:skyer/view/profile/profile_screen.dart';
 
 void main() {
   runApp(const SkyerApp());
@@ -14,6 +15,7 @@ class SkyerApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
+        scaffoldBackgroundColor: whiteColor,
         useMaterial3: true,
         textTheme: TextTheme(
           titleSmall: GoogleFonts.poppins(
@@ -34,6 +36,24 @@ class SkyerApp extends StatelessWidget {
             fontWeight: FontWeight.bold,
             letterSpacing: 0.5,
           ),
+          bodySmall: GoogleFonts.poppins(
+            color: whiteColor,
+            fontSize: 10,
+            fontWeight: FontWeight.w500,
+            letterSpacing: 0.5,
+          ),
+          bodyLarge: GoogleFonts.poppins(
+            color: blackColor,
+            fontSize: 22,
+            fontWeight: FontWeight.w700,
+            letterSpacing: 0.5,
+          ),
+          bodyMedium: GoogleFonts.poppins(
+            color: blackColor,
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+            letterSpacing: 0.5,
+          ),
         ),
         appBarTheme: AppBarTheme(
           backgroundColor: whiteColor,
@@ -48,7 +68,8 @@ class SkyerApp extends StatelessWidget {
       title: 'Skyer',
       debugShowCheckedModeBanner: false,
       routes: {
-        '/': (context) => HomeScreen(),
+        '/': (context) => const HomeScreen(),
+        '/profile': (context) => const ProfileScreen(),
       },
     );
   }

@@ -19,7 +19,7 @@ Widget homeScrollableBox(BuildContext context,
           height: height * 0.14,
           width: width * 0.5,
           decoration: BoxDecoration(
-            border: Border.all(color: blackColor, width: 1),
+            // border: Border.all(color: blackColor, width: 1),
             color: whiteColor,
             borderRadius: BorderRadius.circular(8),
             image: DecorationImage(

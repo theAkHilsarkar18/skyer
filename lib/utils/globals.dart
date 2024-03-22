@@ -26,10 +26,14 @@ class Globals {
   static String postImageUrl4 =
       "https://i.pinimg.com/originals/e7/91/7b/e7917bd13b3bc31c7242e72bdea42fa2.png";
 
+  static String username = "John Doe";
   static String username1 = "Heena Ahmed";
   static String username2 = "Ayesha Patel";
   static String username3 = "Sara Khan";
   static String username4 = "Mehran Naseer";
+
+  static String userLocation = "Los Angeles, CA";
+  static String userBio = "When the whole world is silent, even one voice becomes powerful – Malala Yousafzai";
 
   static List postImageUrlList = [
     postImageUrl1,
