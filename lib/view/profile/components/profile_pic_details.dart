@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import '../../../utils/colors.dart';
 import '../../../utils/globals.dart';
 
-Container profilePicAndDetails(double height, double width, BuildContext context) {
+Container profilePicAndDetails(
+    double height, double width, BuildContext context) {
   return Container(
-    height: height * 0.22,
+    height: height * 0.21,
     width: width,
-    padding:
-    EdgeInsets.symmetric(horizontal: Globals.defaultPadding * 2),
+    padding: EdgeInsets.symmetric(horizontal: Globals.defaultPadding * 2),
     alignment: Alignment.center,
     // color: greyColor,
     child: Row(
@@ -33,8 +33,8 @@ Container profilePicAndDetails(double height, double width, BuildContext context
             Container(
               height: height * 0.042,
               // width: width*0.27,
-              padding: EdgeInsets.symmetric(
-                  horizontal: Globals.defaultPadding * 2),
+              padding:
+                  EdgeInsets.symmetric(horizontal: Globals.defaultPadding * 2),
               decoration: BoxDecoration(
                 color: blackColor,
                 borderRadius: BorderRadius.circular(25),
@@ -74,8 +74,8 @@ Container profilePicAndDetails(double height, double width, BuildContext context
                 maxLines: 4,
                 overflow: TextOverflow.ellipsis,
                 style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                  color: greyColor.withOpacity(0.5),
-                ),
+                      color: greyColor.withOpacity(0.5),
+                    ),
               ),
             ),
           ],
@@ -84,6 +84,3 @@ Container profilePicAndDetails(double height, double width, BuildContext context
     ),
   );
 }
-
-
-

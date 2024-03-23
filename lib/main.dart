@@ -14,6 +14,11 @@ class SkyerApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      themeAnimationStyle: AnimationStyle(
+        curve: Curves.bounceIn,
+        duration: const Duration(milliseconds: 500),
+        reverseDuration: const Duration(milliseconds: 300),
+      ),
       theme: ThemeData(
         scaffoldBackgroundColor: whiteColor,
         useMaterial3: true,
