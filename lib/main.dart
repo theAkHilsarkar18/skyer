@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:skyer/utils/colors.dart';
 import 'package:skyer/view/home/home_screen.dart';
+import 'package:skyer/view/post%20view/post_view.dart';
 import 'package:skyer/view/profile/profile_screen.dart';
 
 void main() {
@@ -43,7 +44,7 @@ class SkyerApp extends StatelessWidget {
           ),
           bodySmall: GoogleFonts.poppins(
             color: whiteColor,
-            fontSize: 10,
+            fontSize: 12,
             fontWeight: FontWeight.w500,
             letterSpacing: 0.5,
           ),
@@ -75,6 +76,7 @@ class SkyerApp extends StatelessWidget {
       routes: {
         '/': (context) => const HomeScreen(),
         '/profile': (context) => const ProfileScreen(),
+        '/post_view': (context) => const PostViewScreen(),
       },
     );
   }

@@ -33,11 +33,16 @@ class Globals {
   static String username4 = "Mehran Naseer";
 
   static String userLocation = "Los Angeles, CA";
-  static String userBio = "When the whole world is silent, even one voice becomes powerful – Malala Yousafzai";
+  static String userBio =
+      "When the whole world is silent even one voice becomes powerful – Malala Yousafzai";
 
   static String userPost = '190';
   static String userFollower = '1.5M';
   static String userFollowing = '71';
+  static String userProfession = 'Flutter Developer';
+
+  static String userPostDescription =
+      "Hello, My name is John Doe. I am a Flutter Developer. I love My app is awesome and I love it and I love it...: ). and my hobby are playing cricket and football";
 
   static List postImageUrlList = [
     postImageUrl1,

@@ -4,6 +4,7 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:skyer/utils/colors.dart';
 import 'package:skyer/utils/globals.dart';
 
+import 'components/profile_grid_view.dart';
 import 'components/profile_pic_details.dart';
 import 'components/profile_stats.dart';
 import 'components/profile_stats_row.dart';
@@ -39,97 +40,9 @@ class ProfileScreen extends StatelessWidget {
           const Divider(
             thickness: 0.3,
           ),
-          Padding(
-            padding: EdgeInsets.all(Globals.defaultPadding),
-            child: StaggeredGrid.count(
-              crossAxisCount: 3,
-              crossAxisSpacing: Globals.defaultPadding,
-              mainAxisSpacing: Globals.defaultPadding,
-              children: [
-                gridImageBox(
-                  crossCount: 2,
-                  mainCount: 2,
-                  imageUrl: Globals.postImageUrl1,
-                ),
-                gridImageBox(
-                  crossCount: 1,
-                  mainCount: 1,
-                  imageUrl: Globals.postImageUrl2,
-                ),
-                gridImageBox(
-                  crossCount: 1,
-                  mainCount: 1,
-                  imageUrl: Globals.postImageUrl3,
-                ),
-                gridImageBox(
-                  crossCount: 1,
-                  mainCount: 1,
-                  imageUrl: Globals.postImageUrl3,
-                ),
-                gridImageBox(
-                  crossCount: 1,
-                  mainCount: 1,
-                  imageUrl: Globals.postImageUrl3,
-                ),
-                gridImageBox(
-                  crossCount: 1,
-                  mainCount: 1,
-                  imageUrl: Globals.postImageUrl3,
-                ),
-                gridImageBox(
-                  crossCount: 2,
-                  mainCount: 2,
-                  imageUrl: Globals.postImageUrl1,
-                ),
-                gridImageBox(
-                  crossCount: 1,
-                  mainCount: 1,
-                  imageUrl: Globals.postImageUrl2,
-                ),
-                gridImageBox(
-                  crossCount: 1,
-                  mainCount: 1,
-                  imageUrl: Globals.postImageUrl3,
-                ),
-                gridImageBox(
-                  crossCount: 1,
-                  mainCount: 1,
-                  imageUrl: Globals.postImageUrl3,
-                ),
-                gridImageBox(
-                  crossCount: 1,
-                  mainCount: 1,
-                  imageUrl: Globals.postImageUrl3,
-                ),
-                gridImageBox(
-                  crossCount: 1,
-                  mainCount: 1,
-                  imageUrl: Globals.postImageUrl3,
-                ),
-              ],
-            ),
-          ),
+          profileGridView(),
         ],
       ),
     );
   }
-}
-
-Widget gridImageBox(
-    {required int crossCount,
-    required int mainCount,
-    required String imageUrl}) {
-  return StaggeredGridTile.count(
-    mainAxisCellCount: mainCount,
-    crossAxisCellCount: crossCount,
-    child: Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(Globals.defaultPadding),
-        image: DecorationImage(
-          fit: BoxFit.cover,
-          image: NetworkImage(imageUrl),
-        ),
-      ),
-    ),
-  );
 }
