@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:skyer/utils/colors.dart';
 import 'package:skyer/view/home/home_screen.dart';
+import 'package:skyer/view/navigation%20bar/nav_bar_screen.dart';
 import 'package:skyer/view/post%20view/post_view.dart';
 import 'package:skyer/view/profile/profile_screen.dart';
 
@@ -74,7 +75,8 @@ class SkyerApp extends StatelessWidget {
       title: 'Skyer',
       debugShowCheckedModeBanner: false,
       routes: {
-        '/': (context) => const HomeScreen(),
+        '/': (context) => const NavigationBarScreen(),
+        '/home': (context) => const HomeScreen(),
         '/profile': (context) => const ProfileScreen(),
         '/post_view': (context) => const PostViewScreen(),
       },

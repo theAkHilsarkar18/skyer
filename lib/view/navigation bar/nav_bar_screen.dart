@@ -1,0 +1,39 @@
+import 'package:flutter/cupertino.dart';
+import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
+import 'package:flutter/material.dart';
+import 'package:skyer/utils/colors.dart';
+import 'package:skyer/view/home/home_screen.dart';
+
+import '../../utils/globals.dart';
+
+class NavigationBarScreen extends StatefulWidget {
+  const NavigationBarScreen({super.key});
+
+  @override
+  State<NavigationBarScreen> createState() => _NavigationBarScreenState();
+}
+
+class _NavigationBarScreenState extends State<NavigationBarScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Globals.screenList[Globals.screenIndex],
+      bottomNavigationBar: AnimatedBottomNavigationBar(
+          onTap: (p0) {
+            setState(() {
+              Globals.screenIndex = p0;
+            });
+          },
+          activeIndex: Globals.screenIndex,
+          backgroundColor: whiteColor,
+          gapLocation: GapLocation.none,
+          icons: const [
+            CupertinoIcons.home,
+            CupertinoIcons.search,
+            CupertinoIcons.add_circled,
+            CupertinoIcons.heart,
+            CupertinoIcons.person,
+          ]),
+    );
+  }
+}

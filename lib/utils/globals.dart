@@ -1,3 +1,6 @@
+import 'package:skyer/view/home/home_screen.dart';
+import 'package:skyer/view/profile/profile_screen.dart';
+
 class Globals {
   static double defaultPadding = 10;
 
@@ -65,4 +68,14 @@ class Globals {
     "Data Scientist",
     "Data Analyst"
   ];
+
+  static List screenList = [
+    const HomeScreen(),
+    const HomeScreen(),
+    const HomeScreen(),
+    const HomeScreen(),
+    const ProfileScreen(),
+  ];
+
+  static int screenIndex = 0;
 }
