@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../view/home/home_screen.dart';
 import '../view/navigation bar/nav_bar_screen.dart';
+import '../view/notification/notification_screen.dart';
 import '../view/post view/post_view.dart';
 import '../view/profile/profile_screen.dart';
 import '../view/search/search_screen.dart';
@@ -12,5 +13,6 @@ class ScreenRoutes {
     '/profile': (context) => const ProfileScreen(),
     '/search': (context) => const SearchScreen(),
     '/post_view': (context) => const PostViewScreen(),
+    'notification': (context) => const NotificationScreen(),
   };
 }

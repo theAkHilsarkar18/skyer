@@ -60,5 +60,18 @@ ThemeData buildThemeData() {
         iconColor: MaterialStateProperty.all(blackColor),
       ),
     ),
+    textButtonTheme: TextButtonThemeData(
+      style: ButtonStyle(
+        foregroundColor: MaterialStateProperty.all(blackColor),
+        overlayColor: MaterialStateProperty.all(
+          blackColor.withOpacity(0.1),
+        ),
+        textStyle: MaterialStateProperty.all(
+          GoogleFonts.poppins(
+            color: blackColor,
+          ),
+        ),
+      ),
+    ),
   );
 }

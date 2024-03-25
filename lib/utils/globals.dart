@@ -1,4 +1,5 @@
 import 'package:skyer/view/home/home_screen.dart';
+import 'package:skyer/view/notification/notification_screen.dart';
 import 'package:skyer/view/profile/profile_screen.dart';
 import 'package:skyer/view/search/search_screen.dart';
 
@@ -47,6 +48,16 @@ class Globals {
 
   static String userPostDescription =
       "Hello, My name is John Doe. I am a Flutter Developer. I love My app is awesome and I love it and I love it...: ). and my hobby are playing cricket and football";
+  static String accountFollowNotificationText =
+      'Heena Ahmed started following you';
+
+  static String accountFollowRequestNotificationText =
+      'Ayesha Patel requested to follow you';
+
+  static String accountLikeNotificationText = 'Sara Khan liked your post';
+
+  static String accountCommentNotificationText = 'Mehran Naseer commented :';
+  static String accountCommentText = "Incredible 🤩";
 
   static List postImageUrlList = [
     postImageUrl1,
@@ -74,7 +85,7 @@ class Globals {
     const HomeScreen(),
     const SearchScreen(),
     const HomeScreen(),
-    const HomeScreen(),
+    const NotificationScreen(),
     const ProfileScreen(),
   ];
 
