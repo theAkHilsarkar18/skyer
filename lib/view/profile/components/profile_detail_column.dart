@@ -31,6 +31,7 @@ Column personalDetailColumn(BuildContext context, double height) {
         overflow: TextOverflow.ellipsis,
         style: Theme.of(context).textTheme.bodySmall!.copyWith(
               color: greyColor,
+              fontSize: 10,
             ),
       ),
     ],
