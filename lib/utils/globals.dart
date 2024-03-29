@@ -1,4 +1,5 @@
 import 'package:skyer/view/home/home_screen.dart';
+import 'package:skyer/view/notification/notification_screen.dart';
 import 'package:skyer/view/profile/profile_screen.dart';
 import 'package:skyer/view/search/search_screen.dart';
 
@@ -74,7 +75,7 @@ class Globals {
     const HomeScreen(),
     const SearchScreen(),
     const HomeScreen(),
-    const HomeScreen(),
+    const NotificationScreen(),
     const ProfileScreen(),
   ];
 
