@@ -22,12 +22,12 @@ ThemeData buildThemeData() {
       ),
       titleLarge: GoogleFonts.poppins(
         color: blackColor,
-        fontSize: 22,
+        fontSize: 20,
         fontWeight: FontWeight.bold,
-        letterSpacing: 0.5,
+        letterSpacing: 1,
       ),
       bodySmall: GoogleFonts.poppins(
-        color: whiteColor,
+        color: blackColor,
         fontSize: 12,
         fontWeight: FontWeight.w500,
         letterSpacing: 0.5,
@@ -48,9 +48,12 @@ ThemeData buildThemeData() {
     appBarTheme: AppBarTheme(
       surfaceTintColor: whiteColor,
       backgroundColor: whiteColor,
+      iconTheme: IconThemeData(
+        color: blackColor,
+      ),
       titleTextStyle: GoogleFonts.poppins(
         color: blackColor,
-        fontSize: 22,
+        fontSize: 20,
         fontWeight: FontWeight.w600,
         letterSpacing: 0.5,
       ),

@@ -49,6 +49,12 @@ class Globals {
   static String userPostDescription =
       "Hello, My name is John Doe. I am a Flutter Developer. I love My app is awesome and I love it and I love it...: ). and my hobby are playing cricket and football";
 
+  static String followRequestText = "requested to follow you.";
+  static String followText = "started following you.";
+  static String likeText = "liked your post.";
+  static String commentText = "commented on your post.";
+
+
   static List postImageUrlList = [
     postImageUrl1,
     postImageUrl2,
@@ -78,6 +84,5 @@ class Globals {
     const NotificationScreen(),
     const ProfileScreen(),
   ];
-
   static int screenIndex = 0;
 }
