@@ -4,7 +4,7 @@ import 'package:skyer/utils/globals.dart';
 
 Column profilePicColum(double width, double height, BuildContext context) {
   return Column(
-    mainAxisAlignment: MainAxisAlignment.center,
+    mainAxisAlignment: MainAxisAlignment.end,
     children: [
       Container(
         decoration: BoxDecoration(
@@ -23,8 +23,7 @@ Column profilePicColum(double width, double height, BuildContext context) {
       Container(
         height: height * 0.042,
         // width: width*0.27,
-        padding: EdgeInsets.symmetric(
-            horizontal: Globals.defaultPadding * 2),
+        padding: EdgeInsets.symmetric(horizontal: Globals.defaultPadding * 2),
         decoration: BoxDecoration(
           color: blackColor,
           borderRadius: BorderRadius.circular(25),
@@ -32,7 +31,10 @@ Column profilePicColum(double width, double height, BuildContext context) {
         alignment: Alignment.center,
         child: Text(
           'Edit Profile',
-          style: Theme.of(context).textTheme.bodySmall,
+          style: Theme.of(context)
+              .textTheme
+              .bodySmall
+              ?.copyWith(color: whiteColor, fontSize: 10),
         ),
       ),
     ],

@@ -31,6 +31,9 @@ class Globals {
   static String postImageUrl4 =
       "https://i.pinimg.com/originals/e7/91/7b/e7917bd13b3bc31c7242e72bdea42fa2.png";
 
+  static String profileBannerImgUrl =
+      'https://images.pexels.com/photos/38568/apple-imac-ipad-workplace-38568.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1';
+
   static String username = "John Doe";
   static String username1 = "Heena Ahmed";
   static String username2 = "Ayesha Patel";

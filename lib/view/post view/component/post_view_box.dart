@@ -26,7 +26,8 @@ Container postViewBox(double height, double width, BuildContext context,
         // post image
         postViewImage(height, width, postImageUrl),
         // post view bottom bar - like - comment - share
-        postViewAction(height, width, likeCount, commentCount, shareCount),
+        postViewAction(
+            height, width, likeCount, commentCount, shareCount, context),
         // post description
         postViewText(postDescription, context),
       ],

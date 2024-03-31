@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:skyer/utils/colors.dart';
 
 Container postViewAction(double height, double width, String likeCount,
-    String commentCount, String shareCount) {
+    String commentCount, String shareCount, BuildContext context) {
   return Container(
     height: height * 0.05,
     width: width,
@@ -17,7 +17,10 @@ Container postViewAction(double height, double width, String likeCount,
             CupertinoIcons.heart_fill,
           ),
         ),
-        Text(likeCount),
+        Text(
+          likeCount,
+          style: Theme.of(context).textTheme.bodySmall,
+        ),
         IconButton(
           onPressed: () {},
           icon: Icon(
@@ -25,7 +28,10 @@ Container postViewAction(double height, double width, String likeCount,
             color: blackColor,
           ),
         ),
-        Text(commentCount),
+        Text(
+          commentCount,
+          style: Theme.of(context).textTheme.bodySmall,
+        ),
         IconButton(
           onPressed: () {},
           icon: Icon(
@@ -33,7 +39,10 @@ Container postViewAction(double height, double width, String likeCount,
             CupertinoIcons.arrowshape_turn_up_right,
           ),
         ),
-        Text(shareCount),
+        Text(
+          shareCount,
+          style: Theme.of(context).textTheme.bodySmall,
+        ),
         const Spacer(),
         IconButton(
           onPressed: () {},
