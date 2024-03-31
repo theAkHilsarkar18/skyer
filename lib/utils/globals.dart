@@ -64,7 +64,6 @@ class Globals {
   static String likeText = "liked your post.";
   static String commentText = "commented on your post.";
 
-
   static List postImageUrlList = [
     postImageUrl1,
     postImageUrl2,
