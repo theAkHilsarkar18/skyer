@@ -1,13 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
 import 'package:skyer/utils/colors.dart';
-
-import '../../utils/globals.dart';
-import 'components/follow-request.dart';
-import 'components/follow_notification.dart';
-import 'components/like_notification.dart';
+import 'package:skyer/utils/globals.dart';
 
 class NotificationScreen extends StatelessWidget {
   const NotificationScreen({super.key});
@@ -16,100 +11,73 @@ class NotificationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
-    TextScaler textScale = MediaQuery.of(context).textScaler;
-
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {},
+          icon: const Icon(Icons.arrow_back),
+        ),
         title: const Text('Notifications'),
       ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: Globals.defaultPadding),
-        child: ListView(
-          children: [
-            followNotificationBox(height, width, context, textScale),
-            followRequestNotificationBox(height, width, context, textScale),
-            likeNotificationBox(height, width, context, textScale),
-            commentNotificationBox(height, width, context, textScale),
-          ],
-        ),
+      body: Column(
+        children: [
+          followRequestBox(height, width, context),
+        ],
       ),
     );
   }
-}
 
-Widget commentNotificationBox(
-    double height, double width, BuildContext context, TextScaler textScale) {
-  return Container(
-    height: height * 0.08,
-    // color: Colors.green.shade50,
-    child: Row(
-      children: [
-        Container(
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            border: Border.all(color: blackColor, width: 1),
+  Container followRequestBox(
+      double height, double width, BuildContext context) {
+    return Container(
+      height: height * 0.075,
+      width: width,
+      margin: EdgeInsets.symmetric(horizontal: width * 0.02),
+      decoration: const BoxDecoration(
+          // color: Colors.green.shade50
           ),
-          child: CircleAvatar(
-            backgroundColor: whiteColor,
-            backgroundImage: NetworkImage(Globals.profileImageUrlList[3]),
-            radius: width * 0.06,
+      child: Row(
+        children: [
+          CircleAvatar(
+            radius: width * 0.065,
+            backgroundImage: NetworkImage(Globals.profileImageUrl1),
           ),
-        ),
-        SizedBox(width: width * 0.03),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                Globals.accountCommentNotificationText,
-                style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                      color: blackColor,
-                      fontSize: textScale.scale(9.5),
-                    ),
-              ),
-              Text.rich(
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                TextSpan(
-                  children: [
-                    TextSpan(
-                      text: Globals.accountCommentText,
-                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                            color: blackColor,
-                            fontSize: textScale.scale(9.5),
-                          ),
-                    ),
-                    TextSpan(
-                      text: '  5d',
-                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                            color: greyColor,
-                            fontSize: textScale.scale(9),
-                          ),
-                    ),
-                  ],
+          SizedBox(
+            width: width * 0.05,
+          ),
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  Globals.username1,
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
-              ),
-            ],
-          ),
-        ),
-        AspectRatio(
-          aspectRatio: 1,
-          child: Container(
-            // height: height,
-            margin: EdgeInsets.all(Globals.defaultPadding / 2),
-            width: width * 0.3,
-            decoration: BoxDecoration(
-              color: Colors.black,
-              borderRadius: BorderRadius.circular(Globals.defaultPadding / 2),
-              image: DecorationImage(
-                fit: BoxFit.cover,
-                image: NetworkImage(Globals.postImageUrlList[3]),
-              ),
+                Text(
+                  Globals.followRequestText,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
+                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                        color: greyColor,
+                        fontSize: 11,
+                      ),
+                ),
+              ],
             ),
           ),
-        ),
-      ],
-    ),
-  );
+          TextButton(
+            onPressed: () {},
+            child: Text(
+              'Accept',
+              style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                    color: greenColor,
+                  ),
+            ),
+          ),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.close)),
+        ],
+      ),
+    );
+  }
 }

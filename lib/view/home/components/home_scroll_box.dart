@@ -19,7 +19,7 @@ Widget homeScrollableBox(BuildContext context,
           height: height * 0.14,
           width: width * 0.5,
           decoration: BoxDecoration(
-            // border: Border.all(color: blackColor, width: 1),
+            border: Border.all(color: blackColor, width: 1.5),
             color: whiteColor,
             borderRadius: BorderRadius.circular(8),
             image: DecorationImage(
@@ -54,7 +54,9 @@ Widget homeScrollableBox(BuildContext context,
                     EdgeInsets.symmetric(horizontal: Globals.defaultPadding),
                 child: Text(
                   username,
-                  style: Theme.of(context).textTheme.titleSmall,
+                  style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                        color: blackColor,
+                  ),
                 ),
               ),
             ],

@@ -59,6 +59,12 @@ class Globals {
   static String accountCommentNotificationText = 'Mehran Naseer commented :';
   static String accountCommentText = "Incredible 🤩";
 
+  static String followRequestText = "requested to follow you.";
+  static String followText = "started following you.";
+  static String likeText = "liked your post.";
+  static String commentText = "commented on your post.";
+
+
   static List postImageUrlList = [
     postImageUrl1,
     postImageUrl2,
@@ -88,6 +94,5 @@ class Globals {
     const NotificationScreen(),
     const ProfileScreen(),
   ];
-
   static int screenIndex = 0;
 }
