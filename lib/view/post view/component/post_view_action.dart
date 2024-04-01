@@ -78,7 +78,9 @@ Container postViewAction(double height, double width, String likeCount,
             final image = await boundary.toImage();
             final byteData = await image.toByteData(format: ImageByteFormat.png);
             final imageBytes = byteData?.buffer.asUint8List();
-            // final result = await ImageGallerySaver.saveImage(imageBytes!);
+            if(imageBytes != null) {
+              // final result = await ImageGallerySaver.saveImage(imageBytes!);
+            }
             // print(result.status);
             // await GallerySaver.saveImage(imageBytes!);
           },
