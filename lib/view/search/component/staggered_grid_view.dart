@@ -30,21 +30,28 @@ Padding staggeredGridView() {
         gridImageBox(
           crossCount: 1,
           mainCount: 1,
-          imageUrl: Globals.postImageUrl3,
+          imageUrl: Globals.postImageUrl4,
         ),
+        gridImageBox(
+            crossCount: 1, mainCount: 1, imageUrl: Globals.postImageUrl1),
         gridImageBox(
           crossCount: 1,
           mainCount: 1,
-          imageUrl: Globals.postImageUrl3,
-        ),
-        gridImageBox(
-          crossCount: 1,
-          mainCount: 1,
-          imageUrl: Globals.postImageUrl3,
+          imageUrl: Globals.postImageUrl2,
         ),
         gridImageBox(
           crossCount: 2,
           mainCount: 2,
+          imageUrl: Globals.postImageUrl3,
+        ),
+        gridImageBox(
+          crossCount: 1,
+          mainCount: 1,
+          imageUrl: Globals.postImageUrl4,
+        ),
+        gridImageBox(
+          crossCount: 1,
+          mainCount: 1,
           imageUrl: Globals.postImageUrl1,
         ),
         gridImageBox(
@@ -60,17 +67,32 @@ Padding staggeredGridView() {
         gridImageBox(
           crossCount: 1,
           mainCount: 1,
+          imageUrl: Globals.postImageUrl4,
+        ),
+        gridImageBox(
+          crossCount: 3,
+          mainCount: 1,
+          imageUrl: Globals.postImageUrl2,
+        ),
+        gridImageBox(
+          crossCount: 3,
+          mainCount: 1,
+          imageUrl: Globals.postImageUrl1,
+        ),
+        gridImageBox(
+          crossCount: 1,
+          mainCount: 2,
           imageUrl: Globals.postImageUrl3,
         ),
         gridImageBox(
           crossCount: 1,
-          mainCount: 1,
-          imageUrl: Globals.postImageUrl3,
+          mainCount: 2,
+          imageUrl: Globals.postImageUrl4,
         ),
         gridImageBox(
           crossCount: 1,
-          mainCount: 1,
-          imageUrl: Globals.postImageUrl3,
+          mainCount: 2,
+          imageUrl: Globals.postImageUrl1,
         ),
       ],
     ),

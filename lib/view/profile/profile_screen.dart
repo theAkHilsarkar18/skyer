@@ -19,10 +19,10 @@ class ProfileScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {},
-          icon: const Icon(Icons.arrow_back),
-        ),
+        // leading: IconButton(
+        //   onPressed: () {},
+        //   icon: const Icon(Icons.arrow_back),
+        // ),
         title: const Text(
           'john_doe',
         ),
