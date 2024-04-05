@@ -20,7 +20,7 @@ class TrendingProjectsList extends StatelessWidget {
       // color: Colors.black12,
       child: ListView.builder(
         physics: const BouncingScrollPhysics(),
-        itemCount: Globals.profileImageUrlList.length,
+        itemCount: Globals.postImageUrlList.length,
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) => homeScrollableBox(

@@ -6,8 +6,10 @@ class AddPostScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: ,
+      appBar: AppBar(
+        title: Text("Add Post"),
+      ),
+      body: Container(),
     );
   }
 }
