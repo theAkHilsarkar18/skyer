@@ -16,7 +16,7 @@ class TrendingProjectsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: height * 0.23,
+      height: height * 0.25,
       // color: Colors.black12,
       child: ListView.builder(
         physics: const BouncingScrollPhysics(),

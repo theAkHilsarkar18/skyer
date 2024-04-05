@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:skyer/view/add%20post/add_post_screen.dart';
 import 'package:skyer/view/notification/notification_screen.dart';
 import '../view/home/home_screen.dart';
 import '../view/navigation bar/nav_bar_screen.dart';
@@ -14,5 +15,6 @@ class ScreenRoutes {
     '/search': (context) => const SearchScreen(),
     '/post_view': (context) => const PostViewScreen(),
     '/notification': (context) => const NotificationScreen(),
+    '/add_post': (context) => const AddPostScreen(),
   };
 }

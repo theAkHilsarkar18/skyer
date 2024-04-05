@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:skyer/utils/colors.dart';
+import 'package:skyer/view/add%20post/provider/text_controller.dart';
 import 'package:skyer/view/post%20view/component/post_view_image.dart';
 import 'package:skyer/view/post%20view/component/post_view_top.dart';
 
@@ -14,13 +16,14 @@ class AddPostScreen extends StatelessWidget {
 
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
+    TextScaler textScale  = MediaQuery.of(context).textScaler;
 
     return Scaffold(
       appBar: AppBar(
         title: const Text("Add Post"),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           postViewTopBar(height, width, context),
           AspectRatio(
@@ -29,11 +32,21 @@ class AddPostScreen extends StatelessWidget {
               height: height * 0.4,
               width: width,
               decoration: BoxDecoration(
-                color: Colors.green.shade200,
+                color: greyColor.withOpacity(0.1),
+              ),
+              child: Icon(Icons.add_a_photo_outlined,size: textScale.scale(40),color: greyColor,),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: Globals.defaultPadding),
+            child: TextFormField(
+              controller: TextController.txtPostDescription,
+              // ignore: prefer_const_constructors
+              decoration: InputDecoration(
+                border: InputBorder.none,
               ),
             ),
           ),
-          postViewImage(height, width, Globals.postImageUrl1, GlobalKeysClass().globalKeyListForPostViewImage[0]),
         ],
       ),
     );
