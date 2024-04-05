@@ -41,9 +41,14 @@ class AddPostScreen extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: Globals.defaultPadding),
             child: TextFormField(
               controller: TextController.txtPostDescription,
+              // style: Theme.of(context).textTheme,
               // ignore: prefer_const_constructors
               decoration: InputDecoration(
                 border: InputBorder.none,
+                hintText: 'Describe about this post...',
+                hintStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                  color: greyColor,
+                ),
               ),
             ),
           ),
