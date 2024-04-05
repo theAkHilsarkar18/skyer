@@ -45,18 +45,28 @@ Widget homeScrollableBox(BuildContext context,
                   border: Border.all(color: blackColor, width: 1.5),
                 ),
                 child: CircleAvatar(
-                  radius: 18,
+                  radius: 20,
                   backgroundImage: NetworkImage(profileImageUrl),
                 ),
               ),
               Padding(
                 padding:
                     EdgeInsets.symmetric(horizontal: Globals.defaultPadding),
-                child: Text(
-                  username,
-                  style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                        color: blackColor,
-                  ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      username,
+                      style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                            color: blackColor,
+                        fontSize: 14,
+                      ),
+                    ),
+                    Text(
+                      Globals.userProfession,
+                      style: Theme.of(context).textTheme.titleSmall,
+                    ),
+                  ],
                 ),
               ),
             ],

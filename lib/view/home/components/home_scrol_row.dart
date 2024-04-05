@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:skyer/utils/globals.dart';
 
@@ -15,15 +14,19 @@ Container homeStoryScrollRow(double height, double width) {
         height: height * 0.1,
         width: width * 0.16,
         decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            // borderRadius: BorderRadius.circular(Globals.defaultPadding),
-            // border: Border.all(color: blackColor,width: 2,),
-            image: DecorationImage(
-              fit: BoxFit.cover,
-              image: NetworkImage(Globals.profileImageUrlList[index]),
-            )
-        ),),
-      itemCount:4,
+          shape: BoxShape.circle,
+          // borderRadius: BorderRadius.circular(Globals.defaultPadding),
+          border: Border.all(
+            color: blackColor,
+            width: 1,
+          ),
+          image: DecorationImage(
+            fit: BoxFit.cover,
+            image: NetworkImage(Globals.profileImageUrlList[index]),
+          ),
+        ),
+      ),
+      itemCount: Globals.profileImageUrlList.length,
       scrollDirection: Axis.horizontal,
     ),
   );

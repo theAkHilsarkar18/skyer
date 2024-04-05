@@ -25,7 +25,7 @@ class HomePostsListView extends StatelessWidget {
     return ListView.builder(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
-      itemCount: Globals.profileImageUrlList.length,
+      itemCount: Globals.postImageUrlList.length,
       itemBuilder: (context, index) => postViewBox(
         height,
         width,

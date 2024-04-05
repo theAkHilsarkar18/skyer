@@ -21,6 +21,10 @@ class Globals {
   static String profileImageUrl4 =
       "https://dl.memuplay.com/new_market/img/com.vicman.newprofilepic.icon.2022-06-07-21-33-07.png";
 
+  static String profileImageUrl5 = "https://i.pinimg.com/474x/98/51/1e/98511ee98a1930b8938e42caf0904d2d.jpg";
+  static String profileImageUrl6 = "https://www.shutterstock.com/image-photo/head-shot-portrait-close-smiling-600nw-1714666150.jpg";
+  static String profileImageUrl7 = "https://d2v5dzhdg4zhx3.cloudfront.net/web-assets/images/storypages/short/linkedin-profile-picture-maker/dummy_image/thumb/004.webp";
+
   static String postImageUrl1 =
       "https://miro.medium.com/v2/resize:fit:1400/1*EB45EWHOOdf7gKXSgPkw5g.jpeg";
   static String postImageUrl2 =
@@ -75,10 +79,14 @@ class Globals {
   ];
 
   static List profileImageUrlList = [
+    profileImageUrl6,
+    profileImageUrl7,
     profileImageUrl2,
     profileImageUrl1,
     profileImageUrl3,
-    profileImageUrl4
+    profileImageUrl4,
+    profileImageUrl5,
+
   ];
 
   static List usernameList = [username1, username2, username3, username4];

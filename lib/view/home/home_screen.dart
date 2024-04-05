@@ -23,6 +23,7 @@ class HomeScreen extends StatelessWidget {
       appBar: homeAppBar(context),
       body: SingleChildScrollView(
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             // todo trending projects horizontal list view
             homeStoryScrollRow(height, width),
