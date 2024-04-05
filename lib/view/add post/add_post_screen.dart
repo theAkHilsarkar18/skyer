@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:skyer/view/post%20view/component/post_view_image.dart';
 import 'package:skyer/view/post%20view/component/post_view_top.dart';
@@ -19,6 +20,7 @@ class AddPostScreen extends StatelessWidget {
         title: const Text("Add Post"),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           postViewTopBar(height, width, context),
           AspectRatio(
@@ -32,7 +34,6 @@ class AddPostScreen extends StatelessWidget {
             ),
           ),
           postViewImage(height, width, Globals.postImageUrl1, GlobalKeysClass().globalKeyListForPostViewImage[0]),
-
         ],
       ),
     );
