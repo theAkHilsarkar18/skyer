@@ -14,7 +14,7 @@ class Globals {
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpTkw6Wj7PHREerdtSv3U6Xl3QQ0zjQQXzRQ&usqp=CAU";
 
   static String profileImageUrl2 =
-      "https://i.pinimg.com/564x/7f/ed/d8/7fedd865ab68b401303c07d61f64be97.jpg";
+      "https://img.freepik.com/premium-photo/headshot-photos-indian-women-dynamic-professions-occassions-indian-girl_978786-295.jpg";
 
   static String profileImageUrl3 =
       "https://miro.medium.com/v2/resize:fit:1334/1*yuP7XB_YW7VUsE_QskrSHA.jpeg";

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:skyer/global_modal/userData.dart';
 
 import '../../../utils/globals.dart';
 
@@ -22,7 +23,7 @@ Widget profileGridView() {
             borderRadius: BorderRadius.circular(Globals.defaultPadding / 2),
             image: DecorationImage(
               fit: BoxFit.cover,
-              image: NetworkImage(Globals.postImageUrlList[index]),
+              image: NetworkImage(userData[0]['posts'][index]['post_img']),
             ),
           ),
         ),

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:skyer/global_modal/userData.dart';
 import 'package:skyer/utils/colors.dart';
 import 'package:skyer/utils/global_key.dart';
 import 'package:skyer/utils/globals.dart';
@@ -26,11 +27,11 @@ class PostViewScreen extends StatelessWidget {
           height,
           width,
           context,
-          commentCount: "18",
-          likeCount: "811",
-          postDescription: Globals.userPostDescription,
-          postImageUrl: Globals.postImageUrlList[index],
-          shareCount: '8',
+          commentCount: "${userData[0]['posts'][index]['comment']}",
+          likeCount: "${userData[0]['posts'][index]['like']}",
+          postDescription: userData[0]['posts'][index]['post_desc'],
+          postImageUrl: userData[0]['posts'][index]['post_img'],
+          shareCount: '${userData[0]['posts'][index]['share']}',
           globalPostImageKey: GlobalKeysClass().globalKeyListForPostViewImage[index],
         ),
       ),
