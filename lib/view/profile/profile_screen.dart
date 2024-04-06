@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:skyer/global_modal/userData.dart';
 import 'package:skyer/utils/colors.dart';
 import 'package:skyer/utils/globals.dart';
 
@@ -23,8 +24,8 @@ class ProfileScreen extends StatelessWidget {
         //   onPressed: () {},
         //   icon: const Icon(Icons.arrow_back),
         // ),
-        title: const Text(
-          'john_doe',
+        title: Text(
+          userData[0]['username'],
         ),
         actions: [
           IconButton(

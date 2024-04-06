@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:skyer/global_modal/userData.dart';
 import 'package:skyer/utils/colors.dart';
 import 'package:skyer/utils/globals.dart';
 
@@ -16,7 +17,7 @@ Column profilePicColum(double width, double height, BuildContext context) {
         child: CircleAvatar(
           backgroundColor: whiteColor,
           radius: width * 0.15,
-          backgroundImage: NetworkImage(Globals.profileImageUrl),
+          backgroundImage: NetworkImage(userData[0]['profile_img']),
         ),
       ),
       SizedBox(
