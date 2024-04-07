@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "461220268090",
+    "project_id": "skyer-d7aa1",
+    "storage_bucket": "skyer-d7aa1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:461220268090:android:96562e9b7ea6b30f184d03",
+        "android_client_info": {
+          "package_name": "com.example.skyer"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-4IFl1-i0GvaoN9H66_HR3UdQMy3Vaxs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
