@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:skyer/utils/globals.dart';
 
+import '../../../global_modal/userData.dart';
 import '../../../utils/colors.dart';
 
 Widget personalDetailColumn(BuildContext context, double height) {
@@ -13,18 +14,18 @@ Widget personalDetailColumn(BuildContext context, double height) {
       children: [
         SizedBox(height: height * 0.02),
         Text(
-          Globals.username,
+          userData[0]['name'],
           overflow: TextOverflow.ellipsis,
           style: Theme.of(context).textTheme.bodyLarge,
         ),
         Text(
-          Globals.userProfession,
+          userData[0]['profession'],
           overflow: TextOverflow.ellipsis,
           style: Theme.of(context).textTheme.bodyMedium,
         ),
         SizedBox(height: height * 0.005),
         Text(
-          Globals.userLocation,
+          '${ userData[0]['city']}, ${ userData[0]['country']}',
           overflow: TextOverflow.ellipsis,
           style: Theme.of(context)
               .textTheme

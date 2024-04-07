@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:skyer/global_modal/userData.dart';
 import 'package:skyer/view/profile/components/profile_detail_column.dart';
 import 'package:skyer/view/profile/components/profile_pic_column.dart';
 
@@ -15,7 +16,7 @@ Widget profilePicAndDetails(double height, double width, BuildContext context) {
         width: width,
         height: height * 0.11,
         child: Image.network(
-          Globals.profileBannerImgUrl,
+          userData[0]['profile_banner'],
           fit: BoxFit.cover,
         ),
       ),
@@ -43,8 +44,8 @@ Widget profilePicAndDetails(double height, double width, BuildContext context) {
             ),
             SizedBox(height: height * 0.008),
             Text(
-              Globals.userBio,
-              maxLines: 5,
+              userData[0]['about'],
+              maxLines: 3,
               overflow: TextOverflow.ellipsis,
               style: Theme.of(context).textTheme.bodySmall!.copyWith(
                     color: greyColor,

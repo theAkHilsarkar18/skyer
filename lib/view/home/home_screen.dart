@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:skyer/utils/colors.dart';
 
+import '../../utils/globals.dart';
 import 'components/home_app_bar.dart';
 import 'components/home_post_listview.dart';
+import 'components/home_scrol_row.dart';
 import 'components/home_title_row.dart';
 import 'components/trending_projects.dart';
 
@@ -21,8 +23,10 @@ class HomeScreen extends StatelessWidget {
       appBar: homeAppBar(context),
       body: SingleChildScrollView(
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             // todo trending projects horizontal list view
+            homeStoryScrollRow(height, width),
             titleTextRow(context, title: "Trending Projects"),
             TrendingProjectsList(
               height: height,
@@ -40,4 +44,5 @@ class HomeScreen extends StatelessWidget {
       // bottomNavigationBar:
     );
   }
+
 }

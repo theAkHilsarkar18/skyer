@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../global_modal/userData.dart';
 import '../../../utils/colors.dart';
 import '../../../utils/globals.dart';
 
@@ -14,7 +15,7 @@ Container postViewTopBar(double height, double width, BuildContext context) {
           radius: width * 0.06,
           backgroundColor: whiteColor,
           backgroundImage: NetworkImage(
-            Globals.profileImageUrl,
+            userData[0]['profile_img'],
           ),
         ),
         SizedBox(
@@ -25,11 +26,11 @@ Container postViewTopBar(double height, double width, BuildContext context) {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              Globals.username,
+              userData[0]['username'],
               style: Theme.of(context).textTheme.titleMedium,
             ),
             Text(
-              Globals.userProfession,
+              userData[0]['profession'],
               style: Theme.of(context).textTheme.titleSmall,
             ),
           ],

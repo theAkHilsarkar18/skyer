@@ -1,4 +1,47 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../../../utils/colors.dart';
+
+
+Container homePostActionBar(double width) {
+  return Container(
+    // color: Colors.black12,
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        postActionBox(
+          width: width,
+          icon: Icon(
+            CupertinoIcons.heart_fill,
+            color: primaryColor,
+          ),
+          count: '5789',
+          color: primaryColor,
+        ),
+        postActionBox(
+          width: width,
+          icon: Icon(
+            CupertinoIcons.quote_bubble,
+            color: blackColor,
+          ),
+          count: '23',
+          color: primaryColor,
+        ),
+        postActionBox(
+          width: width,
+          icon: Icon(
+            CupertinoIcons.share,
+            color: blackColor,
+          ),
+          count: '15',
+          color: primaryColor,
+        ),
+      ],
+    ),
+  );
+}
+
 
 Widget postActionBox(
     {required Icon icon,

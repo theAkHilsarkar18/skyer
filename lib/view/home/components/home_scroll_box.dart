@@ -9,6 +9,7 @@ Widget homeScrollableBox(BuildContext context,
     required String profileImageUrl}) {
   double height = MediaQuery.of(context).size.height;
   double width = MediaQuery.of(context).size.width;
+  TextScaler textScaler  = MediaQuery.of(context).textScaler;
 
   return Padding(
     padding: EdgeInsets.all(Globals.defaultPadding),
@@ -19,7 +20,7 @@ Widget homeScrollableBox(BuildContext context,
           height: height * 0.14,
           width: width * 0.5,
           decoration: BoxDecoration(
-            border: Border.all(color: blackColor, width: 1.5),
+            border: Border.all(color: blackColor, width: 1),
             color: whiteColor,
             borderRadius: BorderRadius.circular(8),
             image: DecorationImage(
@@ -37,7 +38,7 @@ Widget homeScrollableBox(BuildContext context,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               SizedBox(
-                width: Globals.defaultPadding / 2,
+                width: width*0.01,
               ),
               Container(
                 decoration: BoxDecoration(
@@ -45,18 +46,32 @@ Widget homeScrollableBox(BuildContext context,
                   border: Border.all(color: blackColor, width: 1.5),
                 ),
                 child: CircleAvatar(
-                  radius: 18,
+                  radius: width * 0.05,
                   backgroundImage: NetworkImage(profileImageUrl),
                 ),
               ),
               Padding(
                 padding:
-                    EdgeInsets.symmetric(horizontal: Globals.defaultPadding),
-                child: Text(
-                  username,
-                  style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                        color: blackColor,
-                  ),
+                    EdgeInsets.symmetric(horizontal: width*0.02),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      username,
+                      overflow: TextOverflow.ellipsis,
+                      style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                            color: blackColor,
+                        fontSize: textScaler.scale(11),
+                      ),
+                    ),
+                    Text(
+                      Globals.userProfession,
+                      overflow: TextOverflow.ellipsis,
+                      style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                        fontSize: textScaler.scale(9),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ],

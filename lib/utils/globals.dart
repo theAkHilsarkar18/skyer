@@ -1,3 +1,4 @@
+import 'package:skyer/view/add%20post/add_post_screen.dart';
 import 'package:skyer/view/home/home_screen.dart';
 import 'package:skyer/view/notification/notification_screen.dart';
 import 'package:skyer/view/profile/profile_screen.dart';
@@ -13,13 +14,17 @@ class Globals {
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpTkw6Wj7PHREerdtSv3U6Xl3QQ0zjQQXzRQ&usqp=CAU";
 
   static String profileImageUrl2 =
-      "https://i.pinimg.com/564x/7f/ed/d8/7fedd865ab68b401303c07d61f64be97.jpg";
+      "https://img.freepik.com/premium-photo/headshot-photos-indian-women-dynamic-professions-occassions-indian-girl_978786-295.jpg";
 
   static String profileImageUrl3 =
       "https://miro.medium.com/v2/resize:fit:1334/1*yuP7XB_YW7VUsE_QskrSHA.jpeg";
 
   static String profileImageUrl4 =
       "https://dl.memuplay.com/new_market/img/com.vicman.newprofilepic.icon.2022-06-07-21-33-07.png";
+
+  static String profileImageUrl5 = "https://i.pinimg.com/474x/98/51/1e/98511ee98a1930b8938e42caf0904d2d.jpg";
+  static String profileImageUrl6 = "https://www.shutterstock.com/image-photo/head-shot-portrait-close-smiling-600nw-1714666150.jpg";
+  static String profileImageUrl7 = "https://d2v5dzhdg4zhx3.cloudfront.net/web-assets/images/storypages/short/linkedin-profile-picture-maker/dummy_image/thumb/004.webp";
 
   static String postImageUrl1 =
       "https://miro.medium.com/v2/resize:fit:1400/1*EB45EWHOOdf7gKXSgPkw5g.jpeg";
@@ -75,10 +80,14 @@ class Globals {
   ];
 
   static List profileImageUrlList = [
+    profileImageUrl6,
+    profileImageUrl7,
     profileImageUrl2,
     profileImageUrl1,
     profileImageUrl3,
-    profileImageUrl4
+    profileImageUrl4,
+    profileImageUrl5,
+
   ];
 
   static List usernameList = [username1, username2, username3, username4];
@@ -92,7 +101,7 @@ class Globals {
   static List screenList = [
     const HomeScreen(),
     const SearchScreen(),
-    const HomeScreen(),
+    const AddPostScreen(),
     const NotificationScreen(),
     const ProfileScreen(),
   ];
