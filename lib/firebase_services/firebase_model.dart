@@ -1,18 +1,32 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class FirebaseModel {
   UserModel? user;
-  List? followers;
-  List? following;
-  List? posts;
 
-  FirebaseModel._set({this.followers,this.following,this.posts,this.user});
+  CollectionReference users = FirebaseFirestore.instance.collection("users");
 
-  void createUser()
-  {
-    UserModel userModel = UserModel({});
-    FirebaseModel firebaseModel = FirebaseModel._set(followers: [],following: [],posts: [],user: userModel);
-
+  Future<void> createUser({
+    required String username,
+    required String email,
+    required String password,
+    required String city,
+    required String country,
+    required List followers,
+    required List following,
+    required List posts,
+  }) {
+    UserModel userModel = UserModel({
+      "username": username,
+      "email": email,
+      "password": password,
+      "city": city,
+      "country": country,
+      "followers": followers,
+      "following": following,
+      "posts": posts,
+    });
+    return users.add(userModel);
   }
-
 }
 
 class UserModel {
@@ -22,6 +36,9 @@ class UserModel {
   String? password;
   String? city;
   String? country;
+  List? followers;
+  List? following;
+  List? posts;
 
   UserModel._set({
     this.name,
@@ -30,6 +47,9 @@ class UserModel {
     this.country,
     this.password,
     this.username,
+    this.followers,
+    this.following,
+    this.posts,
   });
 
   factory UserModel(Map user) {
@@ -40,6 +60,9 @@ class UserModel {
       country: user['country'],
       password: user['password'] ?? "12345678",
       username: user['username'],
+      followers: user['followers'],
+      following: user['following'],
+      posts: user['posts'],
     );
   }
 }
