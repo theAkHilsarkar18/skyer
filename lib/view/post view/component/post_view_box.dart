@@ -17,7 +17,7 @@ Container postViewBox(double height, double width, BuildContext context,
     required String shareCount,required GlobalKey globalPostImageKey}) {
   return Container(
     margin: EdgeInsets.symmetric(vertical: Globals.defaultPadding),
-    height: height * 0.5,
+    height: height * 0.51,
     width: width,
     // color: Colors.green.shade50,
     child: Column(
