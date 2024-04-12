@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:skyer/firebase_services/firebase_model.dart';
+import 'package:skyer/firebase_services/firebase_services.dart';
 
 import 'auth_textfield.dart';
 import 'firebase_auth.dart';
@@ -75,6 +77,9 @@ class SignUpScreen extends StatelessWidget {
                   requiredPassword: txtConfirmPassword.text,
                   name: txtName.text,
                 );
+                userModel = UserModel.set(username: txtName.text, email: txtEmail.text, password: txtPassword.text, city: "city", country: "country", followers: [], following: [], posts: []);
+                firebaseServices!.createUser(username: txtName.text, email: txtEmail.text, password: txtPassword.text, city: "city", country: "country", followers: [], following: [], posts: []);
+
               },
               child: Container(
                 margin: EdgeInsets.symmetric(vertical: height * 0.05),

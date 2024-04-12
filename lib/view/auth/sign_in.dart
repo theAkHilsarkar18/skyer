@@ -1,11 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:skyer/firebase_services/firebase_model.dart';
+import 'package:skyer/firebase_services/firebase_services.dart';
 
 import 'auth_textfield.dart';
 import 'firebase_auth.dart';
 
-class SignInScreen extends StatelessWidget {
+class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
+
+  @override
+  State<SignInScreen> createState() => _SignInScreenState();
+}
+
+class _SignInScreenState extends State<SignInScreen> {
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    firebaseServices = FirebaseServices();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

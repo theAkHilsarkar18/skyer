@@ -4,6 +4,7 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:skyer/global_modal/userData.dart';
 import 'package:skyer/utils/colors.dart';
 import 'package:skyer/utils/globals.dart';
+import 'package:skyer/view/auth/firebase_auth.dart';
 
 import 'components/profile_grid_view.dart';
 import 'components/profile_pic_details.dart';
@@ -29,7 +30,9 @@ class ProfileScreen extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              signOutUser();
+            },
             icon: Icon(
               Icons.menu_open,
               color: blackColor,
