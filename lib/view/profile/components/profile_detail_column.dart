@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:skyer/firebase_services/firebase_model.dart';
 import 'package:skyer/utils/globals.dart';
 
 import '../../../global_modal/userData.dart';
@@ -14,7 +15,7 @@ Widget personalDetailColumn(BuildContext context, double height) {
       children: [
         SizedBox(height: height * 0.02),
         Text(
-          userData[0]['name'],
+          userModel!.username!,
           overflow: TextOverflow.ellipsis,
           style: Theme.of(context).textTheme.bodyLarge,
         ),

@@ -27,7 +27,7 @@ class AddPostScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            postViewTopBar(height, width, context),
+            postViewTopBar(height, width, context,postUserName: "theakhilsarkar"),
             AspectRatio(
               aspectRatio: 3 / 2,
               child: Container(

@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:skyer/firebase_services/firebase_model.dart';
+import 'package:skyer/firebase_services/firebase_services.dart';
 import 'package:skyer/utils/colors.dart';
 import 'package:skyer/view/home/home_screen.dart';
 import 'package:skyer/view/navigation%20bar/nav_bar_provider.dart';
@@ -16,6 +18,15 @@ class NavigationBarScreen extends StatefulWidget {
 }
 
 class _NavigationBarScreenState extends State<NavigationBarScreen> {
+
+  // value re-call for update
+  @override
+  void initState() {
+    // TODO: implement initState
+    userStreamData = firebaseServices!.readUser(email: "radha@gmail.com");
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     final navBarProviderTrue = Provider.of<NavBarProvider>(context);

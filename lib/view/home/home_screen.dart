@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -12,8 +13,28 @@ import 'components/home_scrol_row.dart';
 import 'components/home_title_row.dart';
 import 'components/trending_projects.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+
+  @override
+  void initState() {
+    // TODO: implement initState
+
+
+    super.initState();
+  }
+
+
+
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -24,11 +45,16 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: whiteColor,
       appBar: homeAppBar(context),
       body: StreamBuilder(
-        stream: firebaseServices!.readUser(email: userModel!.email!),
+        stream: FirebaseFirestore.instance.collection("users").doc("radha@gmail.com").snapshots(),
         builder: (context, snapshot) {
           // Map user = snapshot;
+
           if(snapshot.hasData)
             {
+              print(snapshot.data!.data().toString());
+              Map userData = snapshot.data!.data()!;
+              userModel = UserModel(userData);
+
               return SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -45,7 +71,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     // todo home screen following posts
                     titleTextRow(context, title: "Today's Posts"),
-                    HomePostsListView(width: width, height: height),
+                    HomePostsListView(width: width, height: height,postUserName: userModel!.username!,),
                   ],
                 ),
               );
@@ -59,5 +85,4 @@ class HomeScreen extends StatelessWidget {
       // bottomNavigationBar:
     );
   }
-
 }

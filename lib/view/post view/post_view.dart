@@ -33,6 +33,7 @@ class PostViewScreen extends StatelessWidget {
           postImageUrl: userData[0]['posts'][index]['post_img'],
           shareCount: '${userData[0]['posts'][index]['share']}',
           globalPostImageKey: GlobalKeysClass().globalKeyListForPostViewImage[index],
+          postUserName: 'theakhilsarkar'
         ),
       ),
     );

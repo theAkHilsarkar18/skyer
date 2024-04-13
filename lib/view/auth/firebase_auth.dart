@@ -45,9 +45,11 @@ Future<void> signUpUser({
     await FirebaseAuth.instance
         .createUserWithEmailAndPassword(email: email, password: password);
     if (context.mounted) Navigator.of(context).pop();
+    Navigator.of(context).pushReplacementNamed('/nav');
     // Navigator.of(context).pop();
   } on FirebaseAuthException catch (e) {
     print(e.code);
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.code)));
+    if (context.mounted) Navigator.of(context).pop();
   }
 }

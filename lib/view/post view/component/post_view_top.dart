@@ -4,7 +4,7 @@ import '../../../global_modal/userData.dart';
 import '../../../utils/colors.dart';
 import '../../../utils/globals.dart';
 
-Container postViewTopBar(double height, double width, BuildContext context) {
+Container postViewTopBar(double height, double width, BuildContext context,{required String postUserName}) {
   return Container(
     height: height * 0.08,
     padding: EdgeInsets.symmetric(horizontal: Globals.defaultPadding),
@@ -26,7 +26,7 @@ Container postViewTopBar(double height, double width, BuildContext context) {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              userData[0]['username'],
+              postUserName,
               style: Theme.of(context).textTheme.titleMedium,
             ),
             Text(

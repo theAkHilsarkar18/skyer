@@ -12,6 +12,7 @@ class UserModel {
   String? name;
   String? username;
   String? email;
+  String? about;
   String? password;
   String? city;
   String? country;
@@ -29,6 +30,7 @@ class UserModel {
     this.followers,
     this.following,
     this.posts,
+    this.about,
   });
 
   factory UserModel(Map user) {
@@ -42,6 +44,7 @@ class UserModel {
       followers: user['followers'],
       following: user['following'],
       posts: user['posts'],
+      about: user['about'],
     );
   }
 }

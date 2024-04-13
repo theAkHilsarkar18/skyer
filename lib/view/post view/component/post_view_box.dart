@@ -10,7 +10,8 @@ import 'package:skyer/view/post%20view/component/post_view_top.dart';
 import '../../../utils/colors.dart';
 
 Container postViewBox(double height, double width, BuildContext context,
-    {required String postDescription,
+    {required String postUserName,
+    required String postDescription,
     required String postImageUrl,
     required String likeCount,
     required String commentCount,
@@ -23,7 +24,7 @@ Container postViewBox(double height, double width, BuildContext context,
     child: Column(
       children: [
         // post view top bar
-        postViewTopBar(height, width, context),
+        postViewTopBar(height, width, context,postUserName: postUserName),
         // post image
         postViewImage(height, width, postImageUrl,globalPostImageKey),
         // post view bottom bar - like - comment - share

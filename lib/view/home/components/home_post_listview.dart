@@ -15,10 +15,12 @@ class HomePostsListView extends StatelessWidget {
     super.key,
     required this.width,
     required this.height,
+    required this.postUserName,
   });
 
   final double width;
   final double height;
+  final String postUserName;
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +39,7 @@ class HomePostsListView extends StatelessWidget {
         shareCount: '8',
         globalPostImageKey:
             GlobalKeysClass().globalKeyListForPostViewImage[index],
+        postUserName: postUserName
       ),
     );
   }
