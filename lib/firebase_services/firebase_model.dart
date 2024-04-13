@@ -1,11 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-
 UserModel? userModel;
 
 class FirebaseModel {
   UserModel? user;
-
 }
 
 class UserModel {
@@ -16,6 +14,8 @@ class UserModel {
   String? password;
   String? city;
   String? country;
+  String? profileBanner;
+  String? profileImg;
   List? followers;
   List? following;
   List? posts;
@@ -31,6 +31,8 @@ class UserModel {
     this.following,
     this.posts,
     this.about,
+    this.profileBanner,
+    this.profileImg,
   });
 
   factory UserModel(Map user) {

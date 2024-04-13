@@ -16,6 +16,9 @@ class FirebaseServices
     required String password,
     required String city,
     required String country,
+    required String profileBanner,
+    required String profileImg,
+    required String name,
     required List followers,
     required List following,
     required List posts,
@@ -39,6 +42,9 @@ class FirebaseServices
       "followers": followers,
       "following": following,
       "posts": posts,
+      "name": name,
+      "profileBanner": profileBanner,
+      "profileImg": profileImg,
     });
   }
 

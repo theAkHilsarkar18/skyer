@@ -8,15 +8,20 @@ import 'package:skyer/firebase_services/firebase_services.dart';
 import 'auth_textfield.dart';
 import 'firebase_auth.dart';
 
+TextEditingController? txtName;
+TextEditingController? txtEmail;
+TextEditingController? txtPassword;
+TextEditingController? txtConfirmPassword;
+
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController txtName = TextEditingController();
-    final TextEditingController txtEmail = TextEditingController();
-    final TextEditingController txtPassword = TextEditingController();
-    final TextEditingController txtConfirmPassword = TextEditingController();
+    txtName = TextEditingController();
+    txtEmail = TextEditingController();
+    txtPassword = TextEditingController();
+    txtConfirmPassword = TextEditingController();
 
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
@@ -40,14 +45,14 @@ class SignUpScreen extends StatelessWidget {
               ),
             ),
             myTextFormField(
-              controller: txtName,
+              controller: txtName!,
               labelText: 'Name',
               height: height,
               width: width,
               context: context,
             ),
             myTextFormField(
-              controller: txtEmail,
+              controller: txtEmail!,
               labelText: 'Email',
               height: height,
               width: width,
@@ -55,7 +60,7 @@ class SignUpScreen extends StatelessWidget {
             ),
             myTextFormField(
                 obscureText: true,
-                controller: txtPassword,
+                controller: txtPassword!,
                 labelText: 'Password',
                 height: height,
                 width: width,
@@ -63,7 +68,7 @@ class SignUpScreen extends StatelessWidget {
             myTextFormField(
               context: context,
               obscureText: true,
-              controller: txtConfirmPassword,
+              controller: txtConfirmPassword!,
               labelText: 'Confirm Password',
               height: height,
               width: width,
@@ -71,15 +76,13 @@ class SignUpScreen extends StatelessWidget {
             GestureDetector(
               onTap: () async {
                 await signUpUser(
-                  email: txtEmail.text,
+                  email: txtEmail!.text,
                   context: context,
-                  password: txtPassword.text,
-                  requiredPassword: txtConfirmPassword.text,
-                  name: txtName.text,
+                  password: txtPassword!.text,
+                  requiredPassword: txtConfirmPassword!.text,
+                  name: txtName!.text,
                 );
-                userModel = UserModel.set(username: txtName.text, email: txtEmail.text, password: txtPassword.text, city: "city", country: "country", followers: [], following: [], posts: []);
-                firebaseServices!.createUser(username: txtName.text, email: txtEmail.text, password: txtPassword.text, city: "city", country: "country", followers: [], following: [], posts: []);
-
+               Navigator.pushNamed(context, '/username');
               },
               child: Container(
                 margin: EdgeInsets.symmetric(vertical: height * 0.05),

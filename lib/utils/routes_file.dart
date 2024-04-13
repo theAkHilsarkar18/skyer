@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:skyer/view/auth/location_screen.dart';
 import 'package:skyer/view/auth/sign_up.dart';
+import 'package:skyer/view/auth/username_screen.dart';
 import 'package:skyer/view/notification/notification_screen.dart';
 import '../view/auth/auth_page.dart';
 import '../view/auth/sign_in.dart';
@@ -21,5 +23,7 @@ class ScreenRoutes {
     '/auth': (context) => const AuthPage(),
     '/sign_in': (context) => const SignInScreen(),
     '/sign_up': (context) => const SignUpScreen(),
+    '/username': (context) => const UsernameScreen(),
+    '/location': (context) => const LocationScreen(),
   };
 }

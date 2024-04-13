@@ -1,3 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +26,7 @@ class _NavigationBarScreenState extends State<NavigationBarScreen> {
   @override
   void initState() {
     // TODO: implement initState
-    userStreamData = firebaseServices!.readUser(email: "radha@gmail.com");
+    userStreamData = firebaseServices!.readUser(email: FirebaseAuth.instance.currentUser!.email!);
     super.initState();
   }
 
