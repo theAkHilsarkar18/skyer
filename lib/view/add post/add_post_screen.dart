@@ -92,7 +92,7 @@ class AddPostScreen extends StatelessWidget {
                 children: [
                   Container(
                     // color: Colors.yellow.shade50,
-                    child: Row(
+                    child: const Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(Icons.alternate_email),
@@ -102,7 +102,7 @@ class AddPostScreen extends StatelessWidget {
                   ),
                   Container(
                     // color: Colors.yellow.shade50,
-                    child: Row(
+                    child: const Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(Icons.tag),
