@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:skyer/firebase_services/firebase_model.dart';
 import 'package:skyer/firebase_services/firebase_services.dart';
 import 'package:skyer/view/auth/sign_up.dart';
+import 'package:skyer/view/auth/username_screen.dart';
 
 import 'auth_textfield.dart';
 import 'firebase_auth.dart';
@@ -89,7 +90,8 @@ class _LocationScreenState extends State<LocationScreen> {
                   name: txtName!.text,
                   profileBanner: 'https://images.pexels.com/photos/38568/apple-imac-ipad-workplace-38568.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
                   profileImg: 'https://media.licdn.com/dms/image/D4D03AQH9iZq7oUyTKA/profile-displayphoto-shrink_200_200/0/1711671228423?e=1717632000&v=beta&t=Qmqf6YydjBPFhVT2xvTNXnhNvvM4HZuhwmgHb3qj5A8',
-                  username: txtName!.text,
+                  username: txtUsername!.text,
+
                     email: FirebaseAuth.instance.currentUser!.email!,
                     password: txtPassword!.text,
                     city: txtCity!.text,
@@ -99,7 +101,7 @@ class _LocationScreenState extends State<LocationScreen> {
                     posts: [],
 
                 );
-                Navigator.pushNamed(context, 'nav');
+                Navigator.pushNamed(context, '/nav');
               },
               child: Container(
                 margin: EdgeInsets.symmetric(vertical: height * 0.05),

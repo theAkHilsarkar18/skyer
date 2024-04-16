@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -40,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: whiteColor,
       appBar: homeAppBar(context),
       body: StreamBuilder(
-        stream: FirebaseFirestore.instance.collection("users").doc("radha@gmail.com").snapshots(),
+        stream: FirebaseFirestore.instance.collection("users").doc(FirebaseAuth.instance.currentUser!.email).snapshots(),
         builder: (context, snapshot) {
           // Map user = snapshot;
 
