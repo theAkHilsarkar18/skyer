@@ -14,7 +14,7 @@ import '../view/search/search_screen.dart';
 class ScreenRoutes {
   static Map<String, Widget Function(BuildContext)> routes = {
     '/': (context) => const AuthPage(),
-    'nav': (context) => const NavigationBarScreen(),
+    '/nav': (context) => const NavigationBarScreen(),
     '/home': (context) => const HomeScreen(),
     '/profile': (context) => const ProfileScreen(),
     '/search': (context) => const SearchScreen(),

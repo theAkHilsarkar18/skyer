@@ -6,6 +6,7 @@ import 'package:skyer/theme/animation_style.dart';
 import 'package:skyer/theme/theme_data_file.dart';
 import 'package:skyer/utils/colors.dart';
 import 'package:skyer/utils/routes_file.dart';
+import 'package:skyer/view/add%20post/provider/add_post_provider.dart';
 import 'package:skyer/view/home/home_screen.dart';
 import 'package:skyer/view/navigation%20bar/nav_bar_provider.dart';
 import 'package:skyer/view/navigation%20bar/nav_bar_screen.dart';
@@ -34,7 +35,10 @@ class SkyerApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (context) => NotificationProvider(),
-        )
+        ),
+        ChangeNotifierProvider(
+          create: (context) => AddPostProvider(),
+        ),
       ],
       child: MaterialApp(
         themeAnimationStyle: buildAnimationStyle(),

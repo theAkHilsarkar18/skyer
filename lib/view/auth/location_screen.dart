@@ -99,7 +99,7 @@ class _LocationScreenState extends State<LocationScreen> {
                     posts: [],
 
                 );
-                Navigator.pushNamed(context, '/nav');
+                Navigator.pushNamed(context, 'nav');
               },
               child: Container(
                 margin: EdgeInsets.symmetric(vertical: height * 0.05),

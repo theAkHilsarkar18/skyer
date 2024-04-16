@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:provider/provider.dart';
 import 'package:skyer/utils/colors.dart';
+import 'package:skyer/view/add%20post/provider/add_post_provider.dart';
 import 'package:skyer/view/add%20post/provider/text_controller.dart';
 import 'package:skyer/view/post%20view/component/post_view_image.dart';
 import 'package:skyer/view/post%20view/component/post_view_top.dart';
@@ -19,6 +21,9 @@ class AddPostScreen extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     TextScaler textScale  = MediaQuery.of(context).textScaler;
 
+    AddPostProvider addPostProviderTrue = Provider.of(context,listen: true);
+    AddPostProvider addPostProviderFalse = Provider.of(context,listen: false);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("Add Post"),
@@ -30,13 +35,18 @@ class AddPostScreen extends StatelessWidget {
             postViewTopBar(height, width, context,postUserName: "theakhilsarkar"),
             AspectRatio(
               aspectRatio: 3 / 2,
-              child: Container(
-                height: height * 0.4,
-                width: width,
-                decoration: BoxDecoration(
-                  color: greyColor.withOpacity(0.1),
+              child: GestureDetector(
+                onTap: () {
+                  addPostProviderFalse.setImageFromGallery();
+                },
+                child: Container(
+                  height: height * 0.4,
+                  width: width,
+                  decoration: BoxDecoration(
+                    color: greyColor.withOpacity(0.1),
+                  ),
+                  child: Icon(Icons.add_a_photo_outlined,size: textScale.scale(40),color: greyColor,),
                 ),
-                child: Icon(Icons.add_a_photo_outlined,size: textScale.scale(40),color: greyColor,),
               ),
             ),
             Padding(
