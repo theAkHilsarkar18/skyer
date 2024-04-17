@@ -54,18 +54,19 @@ class FirebaseServices
     return userStreamData!;
   }
 
-  void readUserFromFirebase({required String email,})
+  DocumentSnapshot<Object?> readUserFromFirebase({required String email,})
   {
       DocumentReference docRef = FirebaseFirestore.instance.collection("users").doc(email);
 
       // asynchronously retrieve the document
       // ApiFuture<DocumentSnapshot> future = docRef.get();
       // future.get() blocks on response
-      DocumentSnapshot document =docRef.get() as DocumentSnapshot<Object?>;
+      DocumentSnapshot document = docRef.get() as DocumentSnapshot<Object?>;
       // if (document.exists()) {
       // System.out.println("Document data: " + document.getData());
       // } else {
       // System.out.println("No such document!");
+    return document;
 
   }
 

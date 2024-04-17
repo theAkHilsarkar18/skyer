@@ -18,11 +18,10 @@ class SignInScreen extends StatefulWidget {
 class _SignInScreenState extends State<SignInScreen> {
 
   @override
-  void initState() {
+  Future<void> initState() async {
     // TODO: implement initState
     firebaseServices = FirebaseServices();
-    Stream<DocumentSnapshot> userStream =  FirebaseFirestore.instance.collection("users").doc(FirebaseAuth.instance.currentUser!.email).snapshots();
-    Map userData = userStream.data!.data()!;
+    firebaseServices!.readUser(email: "jayneshsodvadiya@gmail.com");
     super.initState();
   }
 
