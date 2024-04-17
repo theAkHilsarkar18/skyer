@@ -6,8 +6,7 @@ import 'package:skyer/firebase_services/firebase_services.dart';
 import 'auth_textfield.dart';
 import 'firebase_auth.dart';
 
-
-TextEditingController? txtUsername;
+TextEditingController txtUsername = TextEditingController();
 
 class UsernameScreen extends StatefulWidget {
   const UsernameScreen({super.key});
@@ -17,7 +16,6 @@ class UsernameScreen extends StatefulWidget {
 }
 
 class _UsernameScreenState extends State<UsernameScreen> {
-
   @override
   void initState() {
     // TODO: implement initState
@@ -27,8 +25,6 @@ class _UsernameScreenState extends State<UsernameScreen> {
 
   @override
   Widget build(BuildContext context) {
-    txtUsername = TextEditingController();
-
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     TextScaler textScaler = MediaQuery.of(context).textScaler;
@@ -51,7 +47,6 @@ class _UsernameScreenState extends State<UsernameScreen> {
                 style: TextStyle(fontSize: textScaler.scale(15)),
               ),
             ),
-
             myTextFormField(
               context: context,
               obscureText: false,
@@ -82,7 +77,6 @@ class _UsernameScreenState extends State<UsernameScreen> {
                 ),
               ),
             ),
-
           ],
         ),
       ),

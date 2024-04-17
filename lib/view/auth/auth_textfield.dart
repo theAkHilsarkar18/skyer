@@ -10,13 +10,14 @@ Widget myTextFormField(
   return Padding(
     padding: const EdgeInsets.all(8.0),
     child: SizedBox(
-      height: height * 0.07,
+      height: height * 0.065,
       width: width * 0.95,
       child: TextFormField(
         obscureText: obscureText ?? false,
         controller: controller,
         cursorColor: Colors.black,
         style: Theme.of(context).textTheme.bodyMedium,
+        textInputAction: TextInputAction.next,
         decoration: InputDecoration(
           // fillColor: Colors.grey.shade200,
           // filled: true,

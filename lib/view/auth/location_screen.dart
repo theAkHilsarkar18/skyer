@@ -8,8 +8,8 @@ import 'package:skyer/view/auth/sign_up.dart';
 import 'auth_textfield.dart';
 import 'firebase_auth.dart';
 
-TextEditingController? txtCity;
-TextEditingController? txtCountry;
+TextEditingController txtCity = TextEditingController(text: 'Surat');
+TextEditingController txtCountry = TextEditingController(text: 'India');
 
 class LocationScreen extends StatefulWidget {
   const LocationScreen({super.key});
@@ -28,9 +28,6 @@ class _LocationScreenState extends State<LocationScreen> {
 
   @override
   Widget build(BuildContext context) {
-    txtCity = TextEditingController(text: 'Surat');
-    txtCountry = TextEditingController(text: 'India');
-
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     TextScaler textScaler = MediaQuery.of(context).textScaler;
@@ -56,7 +53,7 @@ class _LocationScreenState extends State<LocationScreen> {
             myTextFormField(
               context: context,
               obscureText: false,
-              controller: txtCity!,
+              controller: txtCity,
               labelText: 'City',
               height: height,
               width: width,
@@ -64,40 +61,31 @@ class _LocationScreenState extends State<LocationScreen> {
             myTextFormField(
               context: context,
               obscureText: false,
-              controller: txtCountry!,
+              controller: txtCountry,
               labelText: 'Country',
               height: height,
               width: width,
             ),
             GestureDetector(
               onTap: () async {
-                userModel = UserModel.set(
-                  username: txtName!.text,
-                  email: txtEmail!.text,
-                  password: txtPassword!.text,
-                  city: txtCity!.text,
-                  country: txtCountry!.text,
+                UserModel userModel = UserModel.set(
+                  username: txtName.text,
+                  email: txtEmail.text,
+                  password: txtPassword.text,
+                  city: txtCity.text,
+                  country: txtCountry.text,
                   followers: [],
                   following: [],
                   posts: [],
                   about: 'this is for about your self..',
-                  name: txtName!.text,
-                  profileBanner: 'https://images.pexels.com/photos/38568/apple-imac-ipad-workplace-38568.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-                  profileImg: 'https://media.licdn.com/dms/image/D4D03AQH9iZq7oUyTKA/profile-displayphoto-shrink_200_200/0/1711671228423?e=1717632000&v=beta&t=Qmqf6YydjBPFhVT2xvTNXnhNvvM4HZuhwmgHb3qj5A8',
+                  name: txtName.text,
+                  profileBanner:
+                      'https://images.pexels.com/photos/38568/apple-imac-ipad-workplace-38568.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+                  profileImg:
+                      'https://media.licdn.com/dms/image/D4D03AQH9iZq7oUyTKA/profile-displayphoto-shrink_200_200/0/1711671228423?e=1717632000&v=beta&t=Qmqf6YydjBPFhVT2xvTNXnhNvvM4HZuhwmgHb3qj5A8',
                 );
                 firebaseServices!.createUser(
-                  name: txtName!.text,
-                  profileBanner: 'https://images.pexels.com/photos/38568/apple-imac-ipad-workplace-38568.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-                  profileImg: 'https://media.licdn.com/dms/image/D4D03AQH9iZq7oUyTKA/profile-displayphoto-shrink_200_200/0/1711671228423?e=1717632000&v=beta&t=Qmqf6YydjBPFhVT2xvTNXnhNvvM4HZuhwmgHb3qj5A8',
-                  username: txtName!.text,
-                    email: FirebaseAuth.instance.currentUser!.email!,
-                    password: txtPassword!.text,
-                    city: txtCity!.text,
-                    country: txtCountry!.text,
-                    followers: [],
-                    following: [],
-                    posts: [],
-
+                  userModel: userModel,
                 );
                 Navigator.pushNamed(context, '/nav');
               },

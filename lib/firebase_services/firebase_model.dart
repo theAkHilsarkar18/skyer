@@ -49,6 +49,22 @@ class UserModel {
       about: user['about'],
     );
   }
+  Map<String, dynamic> toMap() {
+    return {
+      'name': name,
+      'email': email,
+      'city': city,
+      'country': country,
+      'password': password,
+      'username': username,
+      'followers': followers,
+      'following': following,
+      'posts': posts,
+      'about': about,
+      'profileBanner': profileBanner,
+      'profileImg': profileImg,
+    };
+  }
 }
 
 class PostModel {
