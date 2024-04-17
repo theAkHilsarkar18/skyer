@@ -18,10 +18,9 @@ class SignInScreen extends StatefulWidget {
 class _SignInScreenState extends State<SignInScreen> {
 
   @override
-  Future<void> initState() async {
+  void initState() {
     // TODO: implement initState
     firebaseServices = FirebaseServices();
-    firebaseServices!.readUser(email: "jayneshsodvadiya@gmail.com");
     super.initState();
   }
 

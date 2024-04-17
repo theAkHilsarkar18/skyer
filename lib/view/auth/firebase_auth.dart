@@ -11,6 +11,9 @@ Future<void> signInUser({
       email: email,
       password: password,
     );
+
+    Navigator.of(context).pushReplacementNamed('/nav');
+
   } on FirebaseException catch (e) {
     print(e.code);
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.code)));

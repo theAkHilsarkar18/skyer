@@ -48,26 +48,22 @@ class FirebaseServices
     });
   }
 
-  Stream<DocumentSnapshot> readUser({required String email})
-  {
-    userStreamData = users.doc(email).snapshots();
-    return userStreamData!;
-  }
-
-  DocumentSnapshot<Object?> readUserFromFirebase({required String email,})
-  {
-      DocumentReference docRef = FirebaseFirestore.instance.collection("users").doc(email);
-
-      // asynchronously retrieve the document
-      // ApiFuture<DocumentSnapshot> future = docRef.get();
-      // future.get() blocks on response
-      DocumentSnapshot document = docRef.get() as DocumentSnapshot<Object?>;
-      // if (document.exists()) {
-      // System.out.println("Document data: " + document.getData());
-      // } else {
-      // System.out.println("No such document!");
-    return document;
-
+  Future<void> readUser({required String email,})
+  async {
+    DocumentReference<Map<String, dynamic>> documentReference = FirebaseFirestore.instance.collection("users").doc(email);
+    DocumentSnapshot<Map<String, dynamic>> documentSnapshot = await documentReference.get();
+    if(documentSnapshot.exists)
+      {
+        Map userData = documentSnapshot.data()!;
+        print("\n\n");
+        print("\n\n" + userData.toString()+"\n\n");
+        userModel = UserModel(userData);
+        print("\n---------------------------------------------------------${userModel!.name!}");
+      }
+    else
+      {
+        print("\n\n---------------------------------doc not exist-------------------------------------\n\n");
+      }
   }
 
 

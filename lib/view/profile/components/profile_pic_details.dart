@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:skyer/firebase_services/firebase_model.dart';
 import 'package:skyer/global_modal/userData.dart';
 import 'package:skyer/view/profile/components/profile_detail_column.dart';
 import 'package:skyer/view/profile/components/profile_pic_column.dart';
@@ -9,6 +10,8 @@ import '../../../utils/colors.dart';
 import '../../../utils/globals.dart';
 
 Widget profilePicAndDetails(double height, double width, BuildContext context) {
+
+  print("------------------------------${userModel!.profileBanner}------------profile screen");
   return Stack(
     children: [
       Container(
@@ -16,7 +19,7 @@ Widget profilePicAndDetails(double height, double width, BuildContext context) {
         width: width,
         height: height * 0.11,
         child: Image.network(
-          userData[0]['profile_banner'],
+          userModel!.profileBanner!,
           fit: BoxFit.cover,
         ),
       ),

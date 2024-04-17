@@ -7,7 +7,7 @@ import 'auth_textfield.dart';
 import 'firebase_auth.dart';
 
 
-TextEditingController? txtUsername;
+TextEditingController? txtUsername = TextEditingController();
 
 class UsernameScreen extends StatefulWidget {
   const UsernameScreen({super.key});
@@ -27,7 +27,6 @@ class _UsernameScreenState extends State<UsernameScreen> {
 
   @override
   Widget build(BuildContext context) {
-    txtUsername = TextEditingController();
 
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;

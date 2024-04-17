@@ -26,7 +26,8 @@ class _NavigationBarScreenState extends State<NavigationBarScreen> {
   @override
   void initState() {
     // TODO: implement initState
-    userStreamData = firebaseServices!.readUser(email: FirebaseAuth.instance.currentUser!.email!);
+    // userStreamData = firebaseServices!.readUser(email: FirebaseAuth.instance.currentUser!.email!);
+    firebaseServices!.readUser(email: FirebaseAuth.instance.currentUser!.email!);
     super.initState();
   }
 

@@ -83,23 +83,25 @@ class _LocationScreenState extends State<LocationScreen> {
                   posts: [],
                   about: 'this is for about your self..',
                   name: txtName!.text,
-                  profileBanner: 'https://images.pexels.com/photos/38568/apple-imac-ipad-workplace-38568.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-                  profileImg: 'https://media.licdn.com/dms/image/D4D03AQH9iZq7oUyTKA/profile-displayphoto-shrink_200_200/0/1711671228423?e=1717632000&v=beta&t=Qmqf6YydjBPFhVT2xvTNXnhNvvM4HZuhwmgHb3qj5A8',
+                  profileBanner:
+                      'https://images.pexels.com/photos/38568/apple-imac-ipad-workplace-38568.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+                  profileImg:
+                      'https://media.licdn.com/dms/image/D4D03AQH9iZq7oUyTKA/profile-displayphoto-shrink_200_200/0/1711671228423?e=1717632000&v=beta&t=Qmqf6YydjBPFhVT2xvTNXnhNvvM4HZuhwmgHb3qj5A8',
                 );
                 firebaseServices!.createUser(
                   name: txtName!.text,
-                  profileBanner: 'https://images.pexels.com/photos/38568/apple-imac-ipad-workplace-38568.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-                  profileImg: 'https://media.licdn.com/dms/image/D4D03AQH9iZq7oUyTKA/profile-displayphoto-shrink_200_200/0/1711671228423?e=1717632000&v=beta&t=Qmqf6YydjBPFhVT2xvTNXnhNvvM4HZuhwmgHb3qj5A8',
+                  profileBanner:
+                      'https://images.pexels.com/photos/38568/apple-imac-ipad-workplace-38568.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+                  profileImg:
+                      'https://media.licdn.com/dms/image/D4D03AQH9iZq7oUyTKA/profile-displayphoto-shrink_200_200/0/1711671228423?e=1717632000&v=beta&t=Qmqf6YydjBPFhVT2xvTNXnhNvvM4HZuhwmgHb3qj5A8',
                   username: txtUsername!.text,
-
-                    email: FirebaseAuth.instance.currentUser!.email!,
-                    password: txtPassword!.text,
-                    city: txtCity!.text,
-                    country: txtCountry!.text,
-                    followers: [],
-                    following: [],
-                    posts: [],
-
+                  email: FirebaseAuth.instance.currentUser!.email!,
+                  password: txtPassword!.text,
+                  city: txtCity!.text,
+                  country: txtCountry!.text,
+                  followers: [],
+                  following: [],
+                  posts: [],
                 );
                 Navigator.pushNamed(context, '/nav');
               },

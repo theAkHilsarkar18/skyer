@@ -8,20 +8,16 @@ import 'package:skyer/firebase_services/firebase_services.dart';
 import 'auth_textfield.dart';
 import 'firebase_auth.dart';
 
-TextEditingController? txtName;
-TextEditingController? txtEmail;
-TextEditingController? txtPassword;
-TextEditingController? txtConfirmPassword;
+TextEditingController? txtName = TextEditingController();
+TextEditingController? txtEmail = TextEditingController();
+TextEditingController? txtPassword = TextEditingController();
+TextEditingController? txtConfirmPassword = TextEditingController();
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    txtName = TextEditingController();
-    txtEmail = TextEditingController();
-    txtPassword = TextEditingController();
-    txtConfirmPassword = TextEditingController();
 
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
