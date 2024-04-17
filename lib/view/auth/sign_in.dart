@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:skyer/firebase_services/firebase_model.dart';
@@ -19,6 +21,8 @@ class _SignInScreenState extends State<SignInScreen> {
   void initState() {
     // TODO: implement initState
     firebaseServices = FirebaseServices();
+    Stream<DocumentSnapshot> userStream =  FirebaseFirestore.instance.collection("users").doc(FirebaseAuth.instance.currentUser!.email).snapshots();
+    Map userData = userStream.data!.data()!;
     super.initState();
   }
 
