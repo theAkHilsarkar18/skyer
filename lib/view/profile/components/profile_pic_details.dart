@@ -45,7 +45,7 @@ Widget profilePicAndDetails(double height, double width, BuildContext context, U
                     width: width * 0.05,
                   ),
                   Expanded(
-                    child: personalDetailColumn(context, height),
+                    child: personalDetailColumn(context, height,userModel),
                   ),
                 ],
               ),

@@ -15,6 +15,7 @@ class UserModel {
   String? city;
   String? country;
   String? profileBanner;
+  String? profession;
   String? profileImg;
   List? followers;
   List? following;
@@ -33,6 +34,7 @@ class UserModel {
     this.about,
     this.profileBanner,
     this.profileImg,
+    this.profession
   });
 
   factory UserModel(Map user) {
@@ -49,6 +51,7 @@ class UserModel {
       profileImg: user['profileImg'],
       posts: user['posts'],
       about: user['about'],
+      profession: user['profession'],
     );
   }
 }
