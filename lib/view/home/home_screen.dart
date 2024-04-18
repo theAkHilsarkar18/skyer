@@ -47,7 +47,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
           if(snapshot.hasData)
             {
-              print(snapshot.data!.data().toString());
               Map userData = snapshot.data!.data()!;
               userModel = UserModel(userData);
 

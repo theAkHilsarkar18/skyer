@@ -6,21 +6,26 @@ import 'package:skyer/global_modal/userData.dart';
 import 'package:skyer/view/profile/components/profile_detail_column.dart';
 import 'package:skyer/view/profile/components/profile_pic_column.dart';
 
+import '../../../firebase_services/firebase_services.dart';
 import '../../../utils/colors.dart';
 import '../../../utils/globals.dart';
 
-Widget profilePicAndDetails(double height, double width, BuildContext context) {
+Widget profilePicAndDetails(double height, double width, BuildContext context, UserModel userModel) {
 
-  print("------------------------------${userModel!.profileBanner}------------profile screen");
   return Stack(
     children: [
-      Container(
-        color: Colors.red.shade50,
-        width: width,
-        height: height * 0.11,
-        child: Image.network(
-          userModel!.profileBanner!,
-          fit: BoxFit.cover,
+      GestureDetector(
+        onTap: () {
+          firebaseServices!.editProfilePhoto(folder: 'banner',cloudPath: 'profileBanner');
+        },
+        child: Container(
+          color: Colors.red.shade50,
+          width: width,
+          height: height * 0.11,
+          child: Image.network(
+            userModel.profileBanner!,
+            fit: BoxFit.cover,
+          ),
         ),
       ),
       Container(
@@ -35,7 +40,7 @@ Widget profilePicAndDetails(double height, double width, BuildContext context) {
               child: Row(
                 // verticalDirection: VerticalDirection.down,
                 children: [
-                  profilePicColum(width, height, context),
+                  profilePicColum(width, height, context,userModel),
                   SizedBox(
                     width: width * 0.05,
                   ),

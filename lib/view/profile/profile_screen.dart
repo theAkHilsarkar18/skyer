@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -19,43 +22,61 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    firebaseServices!.readUser(email: FirebaseAuth.instance.currentUser!.email!);
-    print("\n\n---------------profile screen-----------------------------${userModel!.profileBanner}");
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
 
-    return Scaffold(
-      appBar: AppBar(
-        // leading: IconButton(
-        //   onPressed: () {},
-        //   icon: const Icon(Icons.arrow_back),
-        // ),
-        title: Text(
-          userData[0]['username'],
-        ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              signOutUser();
-            },
-            icon: Icon(
-              Icons.menu_open,
-              color: blackColor,
-            ),
-          ),
-        ],
-      ),
-      body: ListView(
-        children: [
-          profilePicAndDetails(height, width, context),
-          profileStatsRow(height, width, context),
-          const Divider(
-            thickness: 0.3,
-          ),
-          profileGridView(),
-        ],
-      ),
+    return StreamBuilder(
+      stream: FirebaseFirestore.instance
+          .collection("users")
+          .doc(FirebaseAuth.instance.currentUser!.email)
+          .snapshots(),
+      builder: (context, snapshot) {
+
+        Map userData = snapshot.data!.data()!;
+        userModel = UserModel(userData);
+
+        if(snapshot.hasData)
+          {
+            return Scaffold(
+              appBar: AppBar(
+                // leading: IconButton(
+                //   onPressed: () {},
+                //   icon: const Icon(Icons.arrow_back),
+                // ),
+                title: Text(
+                  userModel!.username!,
+                ),
+                actions: [
+                  IconButton(
+                    onPressed: () {
+                      signOutUser();
+                    },
+                    icon: Icon(
+                      Icons.menu_open,
+                      color: blackColor,
+                    ),
+                  ),
+                ],
+              ),
+              body: ListView(
+                children: [
+                  profilePicAndDetails(height, width, context,userModel!),
+                  profileStatsRow(height, width, context),
+                  const Divider(
+                    thickness: 0.3,
+                  ),
+                  profileGridView(),
+                ],
+              ),
+            );
+          }
+        else
+          {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+      },
     );
   }
 }

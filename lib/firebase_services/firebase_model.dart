@@ -45,6 +45,8 @@ class UserModel {
       username: user['username'],
       followers: user['followers'],
       following: user['following'],
+      profileBanner: user['profileBanner'],
+      profileImg: user['profileImg'],
       posts: user['posts'],
       about: user['about'],
     );
