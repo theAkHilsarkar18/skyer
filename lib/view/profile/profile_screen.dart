@@ -31,51 +31,47 @@ class ProfileScreen extends StatelessWidget {
           .doc(FirebaseAuth.instance.currentUser!.email)
           .snapshots(),
       builder: (context, snapshot) {
-
-        Map userData = snapshot.data!.data()!;
+        Map userData = snapshot.data?.data() ?? {};
         userModel = UserModel(userData);
 
-        if(snapshot.hasData)
-          {
-            return Scaffold(
-              appBar: AppBar(
-                // leading: IconButton(
-                //   onPressed: () {},
-                //   icon: const Icon(Icons.arrow_back),
-                // ),
-                title: Text(
-                  userModel!.username!,
+        if (snapshot.hasData) {
+          return Scaffold(
+            appBar: AppBar(
+              // leading: IconButton(
+              //   onPressed: () {},
+              //   icon: const Icon(Icons.arrow_back),
+              // ),
+              title: Text(
+                userModel!.username!,
+              ),
+              actions: [
+                IconButton(
+                  onPressed: () {
+                    signOutUser();
+                  },
+                  icon: Icon(
+                    Icons.menu_open,
+                    color: blackColor,
+                  ),
                 ),
-                actions: [
-                  IconButton(
-                    onPressed: () {
-                      signOutUser();
-                    },
-                    icon: Icon(
-                      Icons.menu_open,
-                      color: blackColor,
-                    ),
-                  ),
-                ],
-              ),
-              body: ListView(
-                children: [
-                  profilePicAndDetails(height, width, context,userModel!),
-                  profileStatsRow(height, width, context),
-                  const Divider(
-                    thickness: 0.3,
-                  ),
-                  profileGridView(),
-                ],
-              ),
-            );
-          }
-        else
-          {
-            return Center(
-              child: CircularProgressIndicator(),
-            );
-          }
+              ],
+            ),
+            body: ListView(
+              children: [
+                profilePicAndDetails(height, width, context, userModel!),
+                profileStatsRow(height, width, context),
+                const Divider(
+                  thickness: 0.3,
+                ),
+                profileGridView(userModel: userModel!),
+              ],
+            ),
+          );
+        } else {
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        }
       },
     );
   }

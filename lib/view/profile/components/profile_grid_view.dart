@@ -1,9 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:skyer/firebase_services/firebase_model.dart';
 import 'package:skyer/global_modal/userData.dart';
 
 import '../../../utils/globals.dart';
 
-Widget profileGridView() {
+Widget profileGridView({required UserModel userModel}) {
   return Padding(
     padding: EdgeInsets.all(Globals.defaultPadding),
     child: GridView.builder(
@@ -23,7 +25,7 @@ Widget profileGridView() {
             borderRadius: BorderRadius.circular(Globals.defaultPadding / 2),
             image: DecorationImage(
               fit: BoxFit.cover,
-              image: NetworkImage(userData[0]['posts'][index]['post_img']),
+              image: NetworkImage(userModel.posts![index]),
             ),
           ),
         ),

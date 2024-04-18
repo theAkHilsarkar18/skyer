@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:skyer/firebase_services/firebase_model.dart';
 
 import '../../../utils/globals.dart';
 import 'home_scroll_box.dart';
@@ -8,10 +9,12 @@ class TrendingProjectsList extends StatelessWidget {
     super.key,
     required this.height,
     required this.width,
+    required this.userModel,
   });
 
   final double height;
   final double width;
+  final UserModel userModel;
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +29,8 @@ class TrendingProjectsList extends StatelessWidget {
         itemBuilder: (context, index) => homeScrollableBox(
           context,
           profileImageUrl: Globals.profileImageUrlList[index],
-          imageUrl: Globals.postImageUrlList[index],
-          username: Globals.usernameList[index],
+          imageUrl: userModel.posts![index],
+          username: userModel.username!,
         ),
       ),
     );

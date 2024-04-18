@@ -1,7 +1,11 @@
+import 'dart:developer';
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
+import 'package:skyer/firebase_services/firebase_services.dart';
 import 'package:skyer/utils/colors.dart';
 import 'package:skyer/view/add%20post/provider/add_post_provider.dart';
 import 'package:skyer/view/add%20post/provider/text_controller.dart';
@@ -16,13 +20,12 @@ class AddPostScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
-    TextScaler textScale  = MediaQuery.of(context).textScaler;
+    TextScaler textScale = MediaQuery.of(context).textScaler;
 
-    AddPostProvider addPostProviderTrue = Provider.of(context,listen: true);
-    AddPostProvider addPostProviderFalse = Provider.of(context,listen: false);
+    AddPostProvider addPostProviderTrue = Provider.of(context, listen: true);
+    AddPostProvider addPostProviderFalse = Provider.of(context, listen: false);
 
     return Scaffold(
       appBar: AppBar(
@@ -32,12 +35,17 @@ class AddPostScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            postViewTopBar(height, width, context,postUserName: "theakhilsarkar"),
+            postViewTopBar(height, width, context,
+                postUserName: "theakhilsarkar"),
             AspectRatio(
-              aspectRatio: 3 / 2,
+              aspectRatio: 3 / 3,
               child: GestureDetector(
-                onTap: () {
-                  addPostProviderFalse.setImageFromGallery();
+                onTap: () async {
+                  File file = await firebaseServices!.setImageFromGallery();
+
+                  log("FILE IMAGE: $file");
+
+                  addPostProviderFalse.storeImage(file);
                 },
                 child: Container(
                   height: height * 0.4,
@@ -45,7 +53,16 @@ class AddPostScreen extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: greyColor.withOpacity(0.1),
                   ),
-                  child: Icon(Icons.add_a_photo_outlined,size: textScale.scale(40),color: greyColor,),
+                  child: (addPostProviderTrue.fileImage != null)
+                      ? Image.file(
+                          addPostProviderTrue.fileImage!,
+                          fit: BoxFit.cover,
+                        )
+                      : Icon(
+                          Icons.add_a_photo_outlined,
+                          size: textScale.scale(40),
+                          color: greyColor,
+                        ),
                 ),
               ),
             ),
@@ -59,13 +76,10 @@ class AddPostScreen extends StatelessWidget {
                   border: InputBorder.none,
                   hintText: 'Describe about this post...',
                   hintStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                    color: greyColor,
-                    fontSize: textScale.scale(12)
-                  ),
+                      color: greyColor, fontSize: textScale.scale(12)),
                 ),
               ),
             ),
-
             Padding(
               padding: EdgeInsets.symmetric(horizontal: Globals.defaultPadding),
               child: TextFormField(
@@ -77,13 +91,12 @@ class AddPostScreen extends StatelessWidget {
                   border: InputBorder.none,
                   hintText: 'Attach link (optional)...',
                   hintStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                    color: greyColor,
-                      fontSize: textScale.scale(12),
-                  ),
+                        color: greyColor,
+                        fontSize: textScale.scale(12),
+                      ),
                 ),
               ),
             ),
-            
             Container(
               height: height * 0.07,
               // color: Colors.red.shade50,
@@ -113,17 +126,30 @@ class AddPostScreen extends StatelessWidget {
                 ],
               ),
             ),
-            
-            Container(
-              height: height * 0.07,
-              width: width,
-              margin: EdgeInsets.symmetric(horizontal: Globals.defaultPadding,vertical: Globals.defaultPadding*2),
-              decoration : BoxDecoration(
-                color: blackColor,
-                borderRadius: BorderRadius.circular(10)
+            GestureDetector(
+              onTap: () {
+                firebaseServices!.saveImageIntoStorage(
+                    folder: 'Posts',
+                    cloudPath: 'posts',
+                    file: addPostProviderTrue.fileImage!);
+              },
+              child: Container(
+                height: height * 0.07,
+                width: width,
+                margin: EdgeInsets.symmetric(
+                    horizontal: Globals.defaultPadding,
+                    vertical: Globals.defaultPadding * 2),
+                decoration: BoxDecoration(
+                    color: blackColor, borderRadius: BorderRadius.circular(10)),
+                alignment: Alignment.center,
+                child: Text(
+                  'Upload Post',
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyMedium!
+                      .copyWith(color: whiteColor),
+                ),
               ),
-              alignment: Alignment.center,
-              child: Text('Upload Post',style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: whiteColor),),
             ),
           ],
         ),

@@ -22,15 +22,12 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
   @override
   void initState() {
     // TODO: implement initState
 
-
     super.initState();
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -38,15 +35,17 @@ class _HomeScreenState extends State<HomeScreen> {
     double width = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      backgroundColor: whiteColor,
-      appBar: homeAppBar(context),
-      body: StreamBuilder(
-        stream: FirebaseFirestore.instance.collection("users").doc(FirebaseAuth.instance.currentUser!.email).snapshots(),
-        builder: (context, snapshot) {
-          // Map user = snapshot;
+        backgroundColor: whiteColor,
+        appBar: homeAppBar(context),
+        body: StreamBuilder(
+          stream: FirebaseFirestore.instance
+              .collection("users")
+              .doc(FirebaseAuth.instance.currentUser!.email)
+              .snapshots(),
+          builder: (context, snapshot) {
+            // Map user = snapshot;
 
-          if(snapshot.hasData)
-            {
+            if (snapshot.hasData) {
               Map userData = snapshot.data!.data()!;
               userModel = UserModel(userData);
 
@@ -60,24 +59,27 @@ class _HomeScreenState extends State<HomeScreen> {
                     TrendingProjectsList(
                       height: height,
                       width: width,
+                      userModel: userModel!,
                     ),
                     const Divider(
                       thickness: 0.3,
                     ),
                     // todo home screen following posts
                     titleTextRow(context, title: "Today's Posts"),
-                    HomePostsListView(width: width, height: height,postUserName: userModel!.username!,),
+                    HomePostsListView(
+                      width: width,
+                      height: height,
+                      userModel: userModel!,
+                    ),
                   ],
                 ),
               );
-            }
-          else
-            {
+            } else {
               return SingleChildScrollView();
             }
-        },
-      )
-      // bottomNavigationBar:
-    );
+          },
+        )
+        // bottomNavigationBar:
+        );
   }
 }
