@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:skyer/firebase_services/firebase_model.dart';
 import 'package:skyer/firebase_services/firebase_services.dart';
 
 import '../../../global_modal/userData.dart';
@@ -16,7 +17,7 @@ Container postViewTopBar(double height, double width, BuildContext context,{requ
           radius: width * 0.06,
           backgroundColor: whiteColor,
           backgroundImage: NetworkImage(
-            userData[0]['profile_img'],
+            userModel!.profileImg!,
           ),
         ),
         SizedBox(
@@ -31,7 +32,7 @@ Container postViewTopBar(double height, double width, BuildContext context,{requ
               style: Theme.of(context).textTheme.titleMedium,
             ),
             Text(
-              userData[0]['profession'],
+              userModel!.profession!,
               style: Theme.of(context).textTheme.titleSmall,
             ),
           ],

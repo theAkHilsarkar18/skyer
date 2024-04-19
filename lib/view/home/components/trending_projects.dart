@@ -9,12 +9,12 @@ class TrendingProjectsList extends StatelessWidget {
     super.key,
     required this.height,
     required this.width,
-    required this.userModel,
+    required this.userList,
   });
 
   final double height;
   final double width;
-  final UserModel userModel;
+  final List userList;
 
   @override
   Widget build(BuildContext context) {
@@ -23,14 +23,14 @@ class TrendingProjectsList extends StatelessWidget {
       // color: Colors.black12,
       child: ListView.builder(
         physics: const BouncingScrollPhysics(),
-        itemCount: Globals.postImageUrlList.length,
+        itemCount: userList.length,
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) => homeScrollableBox(
           context,
-          profileImageUrl: Globals.profileImageUrlList[index],
-          imageUrl: Globals.postImageUrlList[index],
-          username: userModel.username!,
+          profileImageUrl: userList[index]['profileImg'],
+          imageUrl: userList[index]["posts"][userList[index]["posts"].length-1],
+          username: userList[index]['username'],
         ),
       ),
     );

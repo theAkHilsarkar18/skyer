@@ -21,7 +21,7 @@ Widget profilePicAndDetails(double height, double width, BuildContext context, U
         child: Container(
           color: Colors.red.shade50,
           width: width,
-          height: height * 0.11,
+          height: height * 0.12,
           child: Image.network(
             userModel.profileBanner!,
             fit: BoxFit.cover,
@@ -29,7 +29,7 @@ Widget profilePicAndDetails(double height, double width, BuildContext context, U
         ),
       ),
       Container(
-        height: height * 0.31,
+        height: height * 0.32,
         width: width,
         padding: EdgeInsets.symmetric(horizontal: Globals.defaultPadding * 2),
         alignment: Alignment.center,

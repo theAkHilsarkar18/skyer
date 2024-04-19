@@ -3,7 +3,7 @@ import 'package:skyer/utils/globals.dart';
 
 import '../../../utils/colors.dart';
 
-Container homeStoryScrollRow(double height, double width) {
+Container homeStoryScrollRow(double height, double width,List userList) {
   return Container(
     height: height * 0.08,
     // color: Colors.red.shade50,
@@ -22,11 +22,11 @@ Container homeStoryScrollRow(double height, double width) {
           ),
           image: DecorationImage(
             fit: BoxFit.cover,
-            image: NetworkImage(Globals.profileImageUrlList[index]),
+            image: NetworkImage(userList[index]['profileImg']),
           ),
         ),
       ),
-      itemCount: Globals.profileImageUrlList.length,
+      itemCount: userList.length,
       scrollDirection: Axis.horizontal,
     ),
   );

@@ -44,11 +44,11 @@ class PostViewScreen extends StatelessWidget {
               itemBuilder: (context, index) => postViewBox(
                 index: index,
                   height, width, context,
-                  commentCount: "${userData[0]['posts'][index]['comment']}",
-                  likeCount: "${userData[0]['posts'][index]['like']}",
-                  postDescription: userData[0]['posts'][index]['post_desc'],
+                  commentCount: "${userData[0]['posts'][0]['comment']}",
+                  likeCount: "${userData[0]['posts'][0]['like']}",
+                  postDescription: userData[0]['posts'][0]['post_desc'],
                   postImageUrl: userModel?.posts?[index],
-                  shareCount: '${userData[0]['posts'][index]['share']}',
+                  shareCount: '${userData[0]['posts'][0]['share']}',
                   globalPostImageKey: globalKeyListForPostViewImage![index],
                   postUserName: userModel!.username!),
             );

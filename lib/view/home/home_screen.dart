@@ -34,32 +34,41 @@ class _HomeScreenState extends State<HomeScreen> {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
 
+    // .doc(FirebaseAuth.instance.currentUser!.email)
     return StreamBuilder(
       stream: FirebaseFirestore.instance
           .collection("users")
-          .doc(FirebaseAuth.instance.currentUser!.email)
+          // .orderBy(DateTime.now(),descending: false)
           .snapshots(),
+
       builder: (context, snapshot) {
         // Map user = snapshot;
 
         if (snapshot.hasData) {
-          Map userData = snapshot.data!.data()!;
-          userModel = UserModel(userData);
+          // Map userData = snapshot.data!.data()!;
+          List userList =
+              snapshot.data!.docs.map((document) => document.data()).toList();
+          for (int i = 0; i < userList.length; i++) {
+            if (userList[i]['email'] ==
+                FirebaseAuth.instance.currentUser!.email) {
+              userModel = UserModel(userList[i]);
+            }
+          }
 
           return Scaffold(
             backgroundColor: whiteColor,
-            appBar: homeAppBar(context,userModel!),
+            appBar: homeAppBar(context, userModel!),
             body: SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   // todo trending projects horizontal list view
-                  homeStoryScrollRow(height, width),
+                  homeStoryScrollRow(height, width, userList),
                   titleTextRow(context, title: "Trending Projects"),
                   TrendingProjectsList(
                     height: height,
                     width: width,
-                    userModel: userModel!,
+                    userList: userList,
                   ),
                   const Divider(
                     thickness: 0.3,
