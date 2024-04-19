@@ -30,7 +30,7 @@ Widget profileGridView({required UserModel userModel}) {
           ),
         ),
       ),
-      itemCount: Globals.postImageUrlList.length,
+      itemCount: userModel.posts!.length,
     ),
   );
 }

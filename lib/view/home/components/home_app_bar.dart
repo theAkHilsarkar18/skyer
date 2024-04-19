@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:skyer/firebase_services/firebase_model.dart';
 
 import '../../../utils/colors.dart';
 import '../../../utils/globals.dart';
 
-AppBar homeAppBar(BuildContext context) {
+AppBar homeAppBar(BuildContext context,UserModel userModel) {
   return AppBar(
     surfaceTintColor: whiteColor,
     leading: IconButton(
@@ -26,7 +27,7 @@ AppBar homeAppBar(BuildContext context) {
             ),
             child: CircleAvatar(
               radius: 22,
-              backgroundImage: NetworkImage(Globals.profileImageUrl),
+              backgroundImage: NetworkImage(userModel.profileImg!),
             ),
           ),
         ),

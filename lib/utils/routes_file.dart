@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:skyer/view/add%20post/add_post_screen.dart';
 import 'package:skyer/view/auth/location_screen.dart';
 import 'package:skyer/view/auth/sign_up.dart';
 import 'package:skyer/view/auth/username_screen.dart';
@@ -25,5 +26,6 @@ class ScreenRoutes {
     '/sign_up': (context) => const SignUpScreen(),
     '/username': (context) => const UsernameScreen(),
     '/location': (context) => const LocationScreen(),
+    '/add_post': (context) => const AddPostScreen(),
   };
 }

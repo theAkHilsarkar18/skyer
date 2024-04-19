@@ -13,10 +13,12 @@ Stream<DocumentSnapshot>? userStreamData;
 
 class FirebaseServices {
   CollectionReference users = FirebaseFirestore.instance.collection("users");
+  CollectionReference allPosts = FirebaseFirestore.instance.collection("allPosts");
 
   Future<void> createUser({
     required String username,
     required String email,
+    required String profession,
     required String password,
     required String city,
     required String country,
@@ -38,6 +40,7 @@ class FirebaseServices {
     //   "posts": posts,
     // });
     return users.doc(email).set({
+      "profession" : profession,
       "username": username,
       "email": email,
       "password": password,
@@ -136,5 +139,77 @@ class FirebaseServices {
         .update({
       'posts': posts,
     });
+
+    DocumentReference<Map<String, dynamic>> globalListReference =
+    FirebaseFirestore.instance
+        .collection("allPosts")
+        .doc('allPostList');
+
+    DocumentSnapshot<Map<String, dynamic>> listSnapshot =
+    await globalListReference.get();
+
+    Map<String, dynamic> listData = listSnapshot.data() ?? {};
+
+    List globalPostList = listData['postList'];
+    globalPostList.add(postUrl);
+
+    FirebaseFirestore.instance
+        .collection("allPosts")
+        .doc('allPostList')
+        .update({
+      'postList': globalPostList,
+    });
+    
   }
+
+  Future<void> deletePost(int index)
+  async {
+
+    DocumentReference<Map<String, dynamic>> documentReference =
+    FirebaseFirestore.instance
+        .collection("users")
+        .doc(FirebaseAuth.instance.currentUser!.email);
+    DocumentSnapshot<Map<String, dynamic>> documentSnapshot =
+        await documentReference.get();
+
+    Map<String, dynamic> data = documentSnapshot.data() ?? {};
+
+    List posts = data['posts'];
+
+
+
+
+    DocumentReference<Map<String, dynamic>> globalListReference =
+    FirebaseFirestore.instance
+        .collection("allPosts")
+        .doc('allPostList');
+
+    DocumentSnapshot<Map<String, dynamic>> listSnapshot =
+        await globalListReference.get();
+
+    Map<String, dynamic> listData = listSnapshot.data() ?? {};
+
+    List globalPostList = listData['postList'];
+    globalPostList.remove(posts[index]);
+    posts.removeAt(index);
+
+    FirebaseFirestore.instance
+        .collection("users")
+        .doc(FirebaseAuth.instance.currentUser!.email)
+        .update({
+      'posts': posts,
+    });
+
+    FirebaseFirestore.instance
+        .collection("allPosts")
+        .doc('allPostList')
+        .update({
+      'postList': globalPostList,
+    });
+
+  }
+
+  
+ 
+  
 }

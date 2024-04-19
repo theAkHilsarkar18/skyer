@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:skyer/firebase_services/firebase_services.dart';
 
 import '../../../global_modal/userData.dart';
 import '../../../utils/colors.dart';
 import '../../../utils/globals.dart';
 
-Container postViewTopBar(double height, double width, BuildContext context,{required String postUserName}) {
+Container postViewTopBar(double height, double width, BuildContext context,{required String postUserName, int? index}) {
   return Container(
     height: height * 0.08,
     padding: EdgeInsets.symmetric(horizontal: Globals.defaultPadding),
@@ -36,10 +37,13 @@ Container postViewTopBar(double height, double width, BuildContext context,{requ
           ],
         ),
         const Spacer(),
+        // delete post dropdown
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            firebaseServices!.deletePost(index!);
+          },
           icon: Icon(
-            Icons.more_vert,
+            Icons.delete,
             color: blackColor,
           ),
         ),

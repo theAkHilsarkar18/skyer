@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:skyer/firebase_services/firebase_model.dart';
-import 'package:skyer/firebase_services/firebase_services.dart';
+
 
 import 'auth_textfield.dart';
 import 'firebase_auth.dart';

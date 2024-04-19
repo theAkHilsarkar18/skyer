@@ -15,16 +15,16 @@ Container postViewBox(double height, double width, BuildContext context,
     required String postImageUrl,
     required String likeCount,
     required String commentCount,
-    required String shareCount,required GlobalKey globalPostImageKey}) {
+    required String shareCount,required GlobalKey globalPostImageKey, required int index}) {
   return Container(
     margin: EdgeInsets.symmetric(vertical: Globals.defaultPadding),
-    height: height * 0.51,
+    height: height * 0.65,
     width: width,
     // color: Colors.green.shade50,
     child: Column(
       children: [
         // post view top bar
-        postViewTopBar(height, width, context,postUserName: postUserName),
+        postViewTopBar(height, width, context,postUserName: postUserName,index: index),
         // post image
         postViewImage(height, width, postImageUrl,globalPostImageKey),
         // post view bottom bar - like - comment - share

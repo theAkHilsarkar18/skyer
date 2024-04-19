@@ -33,7 +33,10 @@ Padding staggeredGridView() {
           imageUrl: Globals.postImageUrl4,
         ),
         gridImageBox(
-            crossCount: 1, mainCount: 1, imageUrl: Globals.postImageUrl1),
+          crossCount: 1,
+          mainCount: 1,
+          imageUrl: Globals.postImageUrl1,
+        ),
         gridImageBox(
           crossCount: 1,
           mainCount: 1,

@@ -29,7 +29,7 @@ class TrendingProjectsList extends StatelessWidget {
         itemBuilder: (context, index) => homeScrollableBox(
           context,
           profileImageUrl: Globals.profileImageUrlList[index],
-          imageUrl: userModel.posts![index],
+          imageUrl: Globals.postImageUrlList[index],
           username: userModel.username!,
         ),
       ),

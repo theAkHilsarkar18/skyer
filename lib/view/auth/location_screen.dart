@@ -72,28 +72,29 @@ class _LocationScreenState extends State<LocationScreen> {
             ),
             GestureDetector(
               onTap: () async {
-                userModel = UserModel.set(
-                  username: txtName!.text,
-                  email: txtEmail!.text,
-                  password: txtPassword!.text,
-                  city: txtCity!.text,
-                  country: txtCountry!.text,
-                  followers: [],
-                  following: [],
-                  posts: [],
-                  about: 'this is for about your self..',
-                  name: txtName!.text,
-                  profileBanner:
-                      'https://images.pexels.com/photos/38568/apple-imac-ipad-workplace-38568.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-                  profileImg:
-                      'https://media.licdn.com/dms/image/D4D03AQH9iZq7oUyTKA/profile-displayphoto-shrink_200_200/0/1711671228423?e=1717632000&v=beta&t=Qmqf6YydjBPFhVT2xvTNXnhNvvM4HZuhwmgHb3qj5A8',
-                );
+                // userModel = UserModel.set(
+                //   username: txtName!.text,
+                //   email: txtEmail!.text,
+                //   password: txtPassword!.text,
+                //   city: txtCity!.text,
+                //   country: txtCountry!.text,
+                //   followers: [],
+                //   following: [],
+                //   posts: [],
+                //   about: 'this is for about your self..',
+                //   name: txtName!.text,
+                //   profileBanner:
+                //       'https://media.sproutsocial.com/uploads/1c-LinkedIn-Banner-Personal-design-1.png',
+                //   profileImg:
+                //       'https://png.pngtree.com/png-vector/20191110/ourmid/pngtree-avatar-icon-profile-icon-member-login-vector-isolated-png-image_1978396.jpg',
+                // );
                 firebaseServices!.createUser(
+                  profession: "Developer",
                   name: txtName!.text,
                   profileBanner:
-                      'https://images.pexels.com/photos/38568/apple-imac-ipad-workplace-38568.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+                      'https://media.sproutsocial.com/uploads/1c-LinkedIn-Banner-Personal-design-1.png',
                   profileImg:
-                      'https://media.licdn.com/dms/image/D4D03AQH9iZq7oUyTKA/profile-displayphoto-shrink_200_200/0/1711671228423?e=1717632000&v=beta&t=Qmqf6YydjBPFhVT2xvTNXnhNvvM4HZuhwmgHb3qj5A8',
+                  'https://static.vecteezy.com/system/resources/previews/005/544/718/non_2x/profile-icon-design-free-vector.jpg',
                   username: txtUsername!.text,
                   email: FirebaseAuth.instance.currentUser!.email!,
                   password: txtPassword!.text,

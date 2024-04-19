@@ -29,8 +29,10 @@ class PostViewScreen extends StatelessWidget {
             .doc(FirebaseAuth.instance.currentUser!.email)
             .snapshots(),
         builder: (context, snapshot) {
+
           Map userDataMap = snapshot.data?.data() ?? {};
           userModel = UserModel(userDataMap);
+
           if (snapshot.hasData) {
             List<GlobalKey<State<StatefulWidget>>>?
                 globalKeyListForPostViewImage =
@@ -40,6 +42,7 @@ class PostViewScreen extends StatelessWidget {
               physics: const BouncingScrollPhysics(),
               itemCount: userModel?.posts?.length,
               itemBuilder: (context, index) => postViewBox(
+                index: index,
                   height, width, context,
                   commentCount: "${userData[0]['posts'][index]['comment']}",
                   likeCount: "${userData[0]['posts'][index]['like']}",

@@ -5,7 +5,7 @@ RepaintBoundary postViewImage(double height, double width, String postImageUrl,G
   return RepaintBoundary(
     key: globalPostImageKey,
     child: AspectRatio(
-      aspectRatio: 3 / 2,
+      aspectRatio: 3 / 3,
       child: Container(
         height: height * 0.4,
         width: width,

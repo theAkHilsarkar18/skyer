@@ -34,52 +34,51 @@ class _HomeScreenState extends State<HomeScreen> {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
 
-    return Scaffold(
-        backgroundColor: whiteColor,
-        appBar: homeAppBar(context),
-        body: StreamBuilder(
-          stream: FirebaseFirestore.instance
-              .collection("users")
-              .doc(FirebaseAuth.instance.currentUser!.email)
-              .snapshots(),
-          builder: (context, snapshot) {
-            // Map user = snapshot;
+    return StreamBuilder(
+      stream: FirebaseFirestore.instance
+          .collection("users")
+          .doc(FirebaseAuth.instance.currentUser!.email)
+          .snapshots(),
+      builder: (context, snapshot) {
+        // Map user = snapshot;
 
-            if (snapshot.hasData) {
-              Map userData = snapshot.data!.data()!;
-              userModel = UserModel(userData);
+        if (snapshot.hasData) {
+          Map userData = snapshot.data!.data()!;
+          userModel = UserModel(userData);
 
-              return SingleChildScrollView(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    // todo trending projects horizontal list view
-                    homeStoryScrollRow(height, width),
-                    titleTextRow(context, title: "Trending Projects"),
-                    TrendingProjectsList(
-                      height: height,
-                      width: width,
-                      userModel: userModel!,
-                    ),
-                    const Divider(
-                      thickness: 0.3,
-                    ),
-                    // todo home screen following posts
-                    titleTextRow(context, title: "Today's Posts"),
-                    HomePostsListView(
-                      width: width,
-                      height: height,
-                      userModel: userModel!,
-                    ),
-                  ],
-                ),
-              );
-            } else {
-              return SingleChildScrollView();
-            }
-          },
-        )
-        // bottomNavigationBar:
-        );
+          return Scaffold(
+            backgroundColor: whiteColor,
+            appBar: homeAppBar(context,userModel!),
+            body: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  // todo trending projects horizontal list view
+                  homeStoryScrollRow(height, width),
+                  titleTextRow(context, title: "Trending Projects"),
+                  TrendingProjectsList(
+                    height: height,
+                    width: width,
+                    userModel: userModel!,
+                  ),
+                  const Divider(
+                    thickness: 0.3,
+                  ),
+                  // todo home screen following posts
+                  titleTextRow(context, title: "Today's Posts"),
+                  HomePostsListView(
+                    width: width,
+                    height: height,
+                    userModel: userModel!,
+                  ),
+                ],
+              ),
+            ),
+          );
+        } else {
+          return SingleChildScrollView();
+        }
+      },
+    );
   }
 }

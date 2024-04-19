@@ -31,14 +31,19 @@ class HomePostsListView extends StatelessWidget {
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       itemCount: userModel.posts!.length,
-      itemBuilder: (context, index) => postViewBox(height, width, context,
-          commentCount: "18",
-          likeCount: "811",
-          postDescription: Globals.userPostDescription,
-          postImageUrl: userModel.posts![index],
-          shareCount: '8',
-          globalPostImageKey: globalKeyListForPostViewImage[index],
-          postUserName: userModel.username!),
+      itemBuilder: (context, index) => postViewBox(
+        height,
+        width,
+        context,
+        index: index,
+        commentCount: "18",
+        likeCount: "811",
+        postDescription: Globals.userPostDescription,
+        postImageUrl: userModel.posts![index],
+        shareCount: '8',
+        globalPostImageKey: globalKeyListForPostViewImage[index],
+        postUserName: userModel.username!,
+      ),
     );
   }
 }
