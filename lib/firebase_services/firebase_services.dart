@@ -177,8 +177,6 @@ class FirebaseServices {
     List posts = data['posts'];
 
 
-
-
     DocumentReference<Map<String, dynamic>> globalListReference =
     FirebaseFirestore.instance
         .collection("allPosts")
