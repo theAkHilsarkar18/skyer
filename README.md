@@ -23,6 +23,9 @@ Technologies used in the project:
 *   Flutter as a Cross-Platform Development
 *   Dart as a Programming Language
 *   Firebase as an Online Database
+*   Android Studio as an IDE
+*   Provider as a State Management
+
 
 
 <h2>📃Documetation </h2>
@@ -36,4 +39,9 @@ Technologies used in the project:
 
 [@theAkHilsarkar18](https://github.com/theAkHilsarkar18)
 
+<br>
+
+## 🈸App Flow
+<img src = "https://github.com/theAkHilsarkar18/skyer/assets/113697861/abe20b87-6635-424c-a1d5-3da81d351681">
+<!-- ![85cc7bd1-8320-4db1-b703-c797aeed878b](https://github.com/theAkHilsarkar18/skyer/assets/113697861/abe20b87-6635-424c-a1d5-3da81d351681) -->
 
