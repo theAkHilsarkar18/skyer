@@ -1,16 +1,25 @@
-# skyer
+<h1 align="center" id="title">Project Title: Skyer - Empowering Student Portfolios</h1>
 
-A new Flutter project.
+<p id="description">Skyer is a comprehensive portfolio showcase platform designed to empower students to exhibit their projects assignments and creative works. With a user-friendly interface and seamless connectivity Skyer facilitates collaboration and networking opportunities among students from different branches and disciplines.</p>
 
-## Getting Started
+  
+  
+<h2>🧐 Features</h2>
 
-This project is a starting point for a Flutter application.
+Here're some of the project's best features:
 
-A few resources to get you started if this is your first Flutter project:
+*   User Registration/Login
+*   Project Showcase
+*   Exploring Projects
+*   Networking and Collaboration
+*   Recruiter Interaction
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+  
+  
+<h2>💻 Built with</h2>
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Technologies used in the project:
+
+*   Flutter as a Cross Platform Development
+*   Dart as a Programming Language
+*   Firebase as Online Database
