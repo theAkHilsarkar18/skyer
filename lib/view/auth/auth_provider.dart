@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -24,6 +26,9 @@ class SignInProvider extends ChangeNotifier
     SharedPreferences preferences = await SharedPreferences.getInstance();
     email = preferences.getString('email') ?? "";
     password = preferences.getString('password') ?? "";
+
+    log("get : $email");
+    log("get : $password");
   }
 
 

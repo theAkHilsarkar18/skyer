@@ -1,10 +1,14 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:provider/provider.dart';
 import 'package:skyer/firebase_services/firebase_model.dart';
 import 'package:skyer/firebase_services/firebase_services.dart';
 
+import 'auth_provider.dart';
 import 'auth_textfield.dart';
 import 'firebase_auth.dart';
 
@@ -16,7 +20,6 @@ class SignInScreen extends StatefulWidget {
 }
 
 class _SignInScreenState extends State<SignInScreen> {
-
   @override
   void initState() {
     // TODO: implement initState
@@ -26,13 +29,21 @@ class _SignInScreenState extends State<SignInScreen> {
 
   @override
   Widget build(BuildContext context) {
+    log("build method is loaded !");
+    SignInProvider signInProviderTrue = Provider.of(context, listen: true);
+    SignInProvider signInProviderFalse = Provider.of(context, listen: false);
 
-    final TextEditingController txtEmail = TextEditingController();
-    final TextEditingController txtPassword = TextEditingController();
+    signInProviderFalse.getDataInSharedPreference();
+
+    final TextEditingController txtEmail =
+        TextEditingController(text: signInProviderTrue.email);
+    final TextEditingController txtPassword =
+        TextEditingController(text: signInProviderTrue.password);
 
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     TextScaler textScaler = MediaQuery.of(context).textScaler;
+
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
@@ -66,14 +77,27 @@ class _SignInScreenState extends State<SignInScreen> {
               height: height,
               width: width,
             ),
+            // todo checkbox for remember me
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Text('Remember me',style: Theme.of(context).textTheme.bodySmall,),
-                Checkbox(
-                  activeColor: Colors.black,
-                  value: true, onChanged: (value) {
-                },),
+                Text(
+                  'Remember me',
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
+                Consumer<SignInProvider>(
+                  builder: (context, signInProvider, child) => Checkbox(
+                    activeColor: Colors.black,
+                    value: signInProvider.isCheckForRemember,
+                    onChanged: (value) {
+                      signInProvider.checkRememberBox(value!);
+                      signInProvider.setDataInSharedPreference(
+                        email: txtEmail.text,
+                        password: txtPassword.text,
+                      );
+                    },
+                  ),
+                ),
               ],
             ),
             GestureDetector(

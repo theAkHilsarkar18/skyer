@@ -20,6 +20,7 @@ class SignUpScreen extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     TextScaler textScaler = MediaQuery.of(context).textScaler;
+
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
