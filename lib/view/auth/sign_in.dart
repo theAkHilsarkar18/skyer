@@ -26,6 +26,7 @@ class _SignInScreenState extends State<SignInScreen> {
 
   @override
   Widget build(BuildContext context) {
+
     final TextEditingController txtEmail = TextEditingController();
     final TextEditingController txtPassword = TextEditingController();
 
@@ -65,6 +66,16 @@ class _SignInScreenState extends State<SignInScreen> {
               height: height,
               width: width,
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Text('Remember me',style: Theme.of(context).textTheme.bodySmall,),
+                Checkbox(
+                  activeColor: Colors.black,
+                  value: true, onChanged: (value) {
+                },),
+              ],
+            ),
             GestureDetector(
               onTap: () async {
                 await signInUser(
@@ -74,7 +85,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 );
               },
               child: Container(
-                margin: EdgeInsets.symmetric(vertical: height * 0.05),
+                margin: EdgeInsets.symmetric(vertical: height * 0.03),
                 height: height * 0.07,
                 width: width * 0.95,
                 decoration: BoxDecoration(

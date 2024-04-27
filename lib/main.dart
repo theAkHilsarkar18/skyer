@@ -5,6 +5,7 @@ import 'package:skyer/theme/animation_style.dart';
 import 'package:skyer/theme/theme_data_file.dart';
 import 'package:skyer/utils/routes_file.dart';
 import 'package:skyer/view/add%20post/provider/add_post_provider.dart';
+import 'package:skyer/view/auth/auth_provider.dart';
 import 'package:skyer/view/navigation%20bar/nav_bar_provider.dart';
 import 'package:skyer/view/notification/provider/notification_provider.dart';
 
@@ -32,6 +33,7 @@ class SkyerApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) => AddPostProvider(),
         ),
+        ChangeNotifierProvider(create: (context) => SignInProvider(),)
       ],
       child: MaterialApp(
         themeAnimationStyle: buildAnimationStyle(),

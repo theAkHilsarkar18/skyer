@@ -23,3 +23,4 @@ Container profileStatsRow(double height, double width, BuildContext context,User
     ),
   );
 }
+
