@@ -35,6 +35,12 @@ Technologies used in the project:
 
 <br>
 
+<h2>📃PPT </h2>
+
+[PPT](https://docs.google.com/presentation/d/1_I2rY47MNQUz0-wwKXIRJFFy_zrvFU0yjzJ_sAzAsEg/edit?usp=sharing)
+
+<br>
+
 ## 🖊️Author
 
 [@theAkHilsarkar18](https://github.com/theAkHilsarkar18)
